@@ -117,7 +117,7 @@ def get_transactions_from_db(wallet_address: str, chain: str, from_date: str, to
 
 
 def generate_cross_token_matrix(transactions: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Tính toán ma trận dòng tiền chéo giữa các Token chuẩn đét"""
+    """Tính toán ma trận dòng tiền chéo giữa các Token"""
     tokens_map: Dict[str, Tuple[str, str]] = {}
 
     for tx in transactions:
@@ -147,14 +147,20 @@ def generate_cross_token_matrix(transactions: List[Dict[str, Any]]) -> Dict[str,
             amt = _to_decimal(d.get('amount', '0'))
             tx_tokens[key] = tx_tokens.get(key, zero) + amt
 
-        # Tối ưu logic Ma trận: Phân tách Out/In chuẩn dòng tiền swap
-        for row_key, amt in tx_tokens.items():
-            if amt < zero:
-                # Token bị bán/chuyển đi -> ghi nhận OUT
-                matrix[row_key][row_key]['out'] += abs(amt)
-            elif amt > zero:
-                # Token được mua/nhận về -> ghi nhận IN
-                matrix[row_key][row_key]['in'] += abs(amt)
+        tx_keys = list(tx_tokens.keys())
+        if not tx_keys:
+            continue
+
+        # Với MỌI cặp (row, col) token cùng xuất hiện trong tx này (kể cả row == col),
+        # cộng dồn in/out của token "col" vào ô [row][col].
+        # -> row = "token đang xét", col = "token liên quan" (kể cả chính nó -> đường chéo)
+        for row_key in tx_keys:
+            for col_key in tx_keys:
+                col_amt = tx_tokens[col_key]
+                if col_amt < zero:
+                    matrix[row_key][col_key]['out'] += abs(col_amt)
+                elif col_amt > zero:
+                    matrix[row_key][col_key]['in'] += abs(col_amt)
 
     headers = [{'symbol': tokens_map[k][0], 'contract': tokens_map[k][1], 'key': k} for k in token_keys]
     rows = []
