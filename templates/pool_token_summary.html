@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pool Token Summary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f0f4f9;padding:24px;color:#0a1a2b;-webkit-font-smoothing:antialiased}
+    .container{max-width:1440px;margin:0 auto}
+    .header{margin-bottom:28px}
+    .header h1{font-size:28px;font-weight:800;letter-spacing:-.7px;background:linear-gradient(135deg,#2563eb,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+    .header p{color:#64748b;font-size:14px;margin-top:4px;font-weight:500}
+    .card{background:#fff;border-radius:20px;border:1px solid #e8edf5;box-shadow:0 8px 30px rgba(0,0,0,.04);padding:24px;margin-bottom:24px;transition:box-shadow .2s}
+    .card:hover{box-shadow:0 12px 40px rgba(0,0,0,.07)}
+    .form-grid{display:grid;grid-template-columns:2.2fr 1.2fr 1fr 1fr auto;gap:14px;align-items:end}
+    @media(max-width:1024px){.form-grid{grid-template-columns:1fr 1fr}.form-actions{grid-column:span 2}}
+    .form-group label{display:block;font-size:11px;font-weight:700;color:#64748b;margin-bottom:6px;text-transform:uppercase;letter-spacing:.6px}
+    .form-group input{width:100%;border:2px solid #e8edf5;border-radius:12px;padding:11px 16px;font-size:14px;font-family:inherit;color:#0a1a2b;background:#fafcff;transition:all .2s}
+    .form-group input:focus{outline:none;border-color:#2563eb;background:#fff;box-shadow:0 0 0 4px rgba(37,99,235,.1)}
+    .form-group input::placeholder{color:#94a3b8}
+    .form-actions{display:flex;gap:10px}
+    .btn{border:none;border-radius:12px;padding:11px 24px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .2s;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+    .btn-primary{background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;box-shadow:0 4px 14px rgba(37,99,235,.25)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,.35)}
+    .btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .btn-secondary{background:#fff;color:#0a1a2b;border:2px solid #e8edf5}
+    .btn-secondary:hover{background:#f8fafc;border-color:#cbd5e1}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;padding-top:18px;border-top:2px dashed #e8edf5}
+    .badge{background:#f8fafc;border:1px solid #e8edf5;border-radius:10px;padding:8px 16px;font-size:13px;font-weight:600}
+    .badge strong{display:block;font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;font-weight:700}
+    .table-wrap{overflow:auto;border-radius:16px;border:1px solid #e8edf5;background:#fff;max-height:600px;position:relative}
+    .table-wrap::-webkit-scrollbar{width:6px;height:6px}
+    .table-wrap::-webkit-scrollbar-track{background:#f1f5f9;border-radius:8px}
+    .table-wrap::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:8px}
+    .table-wrap::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+    table{border-collapse:collapse;width:100%;min-width:800px;font-size:13px}
+    th,td{border:1px solid #e8edf5;padding:12px 14px;text-align:center}
+    th{background:#f8fafc;font-weight:700;color:#0a1a2b;position:sticky;top:0;z-index:5;white-space:nowrap;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+    th small{font-weight:400;color:#64748b;text-transform:none;font-size:11px}
+    .token-cell{text-align:left;background:#f8fafc;font-weight:700;position:sticky;left:0;z-index:3;min-width:120px}
+    .token-cell strong{color:#0a1a2b}
+    .token-cell div{font-size:10px;color:#64748b;font-weight:400;margin-top:2px}
+    .cell-out{color:#ef4444;font-weight:700;display:block;font-size:12px}
+    .cell-in{color:#10b981;font-weight:700;display:block;margin-top:3px;font-size:12px}
+    .empty-cell{color:#cbd5e1;font-weight:500}
+    .status{font-size:14px;font-weight:600;margin-top:12px;padding:10px 16px;border-radius:10px}
+    .status.error{color:#ef4444;background:#fef2f2}
+    .status.info{color:#2563eb;background:#eff6ff}
+    .status.success{color:#10b981;background:#ecfdf5}
+    .hidden{display:none!important}
+    .text-muted{color:#64748b}
+    @media(max-width:640px){body{padding:12px}.card{padding:16px}.header h1{font-size:22px}.form-grid{grid-template-columns:1fr}.form-actions{grid-column:span 1}}
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <form id="searchForm" autocomplete="off" onsubmit="return false;">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Wallet Address</label>
+          <input id="wallet" type="text" placeholder="8x4zj74myKzox48jUMHskfNo4NHuAzXeLyXs7HLUSYzL" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label>Chain</label>
+          <input id="chain" type="text" placeholder="sol, eth, bsc..." autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label>From Date</label>
+          <input id="from_date" type="date" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label>To Date</label>
+          <input id="to_date" type="date" autocomplete="off">
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" id="searchBtn" type="button">🔍 Search</button>
+          <button class="btn btn-secondary" id="exportBtn" type="button">📥 CSV</button>
+        </div>
+      </div>
+    </form>
+    <div class="badge-row hidden" id="summaryBadges"></div>
+    <div id="statusMessage" class="status hidden"></div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <div class="table-wrap">
+      <table id="matrixTable">
+        <thead id="matrixHeader"></thead>
+        <tbody id="matrixBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id), qs=sel=>document.querySelector(sel);
+const wallet=$('wallet'), chain=$('chain'), from=$('from_date'), to=$('to_date');
+const header=$('matrixHeader'), body=$('matrixBody'), badges=$('summaryBadges'), status=$('statusMessage');
+const searchBtn=$('searchBtn'), exportBtn=$('exportBtn');
+let data=null;
+
+// Reset form khi load
+window.addEventListener('DOMContentLoaded',()=>{wallet.value=chain.value=from.value=to.value=''});
+
+const fmt=n=>n?Number(n).toLocaleString('en-US',{minFrac:0,maxFrac:4}):'0';
+
+const showStatus=(msg,type='info')=>{status.textContent=msg;status.className=`status ${type}`;status.classList.remove('hidden')};
+const hideStatus=()=>status.classList.add('hidden');
+
+const renderTable=(d)=>{
+  header.innerHTML=body.innerHTML='';badges.innerHTML='';badges.classList.add('hidden');hideStatus();
+  if(!d?.tokens?.length){showStatus('⚠️ Không tìm thấy dữ liệu giao dịch cho thông số này.','error');return}
+  const {tokens,matrix}=d;
+  // Header
+  const tr=document.createElement('tr');
+  tr.innerHTML='<th>Token / Pool</th>'+tokens.map(t=>`<th>${t.symbol}<br><small>${t.contract?'('+t.contract.slice(0,6)+'...)':'Native'}</small></th>`).join('');
+  header.appendChild(tr);
+  // Body
+  tokens.forEach(r=>{
+    const row=document.createElement('tr');
+    row.innerHTML=`<td class="token-cell"><strong>${r.symbol}</strong><div>${r.contract?'('+r.contract.slice(0,6)+'...)':'Native'}</div></td>`+
+      tokens.map(c=>{
+        const cell=matrix[r.key]?.[c.key];
+        if(!cell?.out&&!cell?.in)return '<td class="empty-cell">-</td>';
+        return `<td>${cell.out?`<span class="cell-out">-${fmt(cell.out)}</span>`:''}${cell.in?`<span class="cell-in">+${fmt(cell.in)}</span>`:''}</td>`;
+      }).join('');
+    body.appendChild(row);
+  });
+  // Badges
+  badges.classList.remove('hidden');
+  badges.innerHTML=`
+    <div class="badge"><strong>Wallet</strong>${wallet.value}</div>
+    <div class="badge"><strong>Chain</strong>${chain.value||'ALL'}</div>
+    <div class="badge"><strong>Tokens</strong>${tokens.length}</div>
+    <div class="badge"><strong>Total Flow</strong>${Object.values(matrix).reduce((s,r)=>s+Object.values(r).reduce((a,c)=>a+(c.out||0)+(c.in||0),0),0).toLocaleString()}</div>
+  `;
+};
+
+const fetchMatrix=async()=>{
+  const w=wallet.value.trim();
+  if(!w){showStatus('❌ Vui lòng nhập địa chỉ ví!','error');return}
+  searchBtn.disabled=true;searchBtn.innerHTML='⏳ Searching...';
+  showStatus('⏳ Đang truy vấn dữ liệu...','info');
+  try{
+    const origin=window.location.protocol==='file:'?'http://127.0.0.1:5000':window.location.origin;
+    const res=await fetch(`${origin}/api/pool-token-summary`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({wallet:w,chain:chain.value.trim(),from_date:from.value,to_date:to.value})
+    });
+    if(!res.ok){const e=await res.json();throw new Error(e.message||`HTTP ${res.status}`)}
+    const result=await res.json();
+    if(result.status!=='success')throw new Error(result.message||'Lỗi hệ thống!');
+    data=result.data;renderTable(data);
+    showStatus(`✅ Tìm thấy ${data.tokens.length} token, ${Object.values(data.matrix).reduce((s,r)=>s+Object.values(r).filter(c=>c.out||c.in).length,0)} luồng giao dịch`,'success');
+  }catch(e){showStatus(`❌ ${e.message}`,'error')}
+  finally{searchBtn.disabled=false;searchBtn.innerHTML='🔍 Search'}
+};
+
+// Events
+searchBtn.onclick=()=>fetchMatrix();
+document.getElementById('searchForm').onsubmit=e=>{e.preventDefault();fetchMatrix()};
+
+exportBtn.onclick=()=>{
+  if(!data?.tokens){alert('Không có dữ liệu để xuất!');return}
+  let csv='Token,'+data.tokens.map(t=>t.symbol).join(',')+'\n';
+  data.tokens.forEach(r=>{
+    csv+=r.symbol+data.tokens.map(c=>{
+      const cell=data.matrix[r.key]?.[c.key];
+      return `,"${cell?`OUT:${cell.out||0}|IN:${cell.in||0}`:'0'}"`;
+    }).join('')+'\n';
+  });
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURI(csv);
+  a.download=`matrix_${wallet.value}.csv`;
+  a.click();
+};
+
+// Support Enter key
+wallet.onkeydown=e=>{if(e.key==='Enter')fetchMatrix()};
+</script>
+</body>
+</html>
