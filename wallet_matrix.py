@@ -117,7 +117,18 @@ def get_transactions_from_db(wallet_address: str, chain: str, from_date: str, to
 
 
 def generate_cross_token_matrix(transactions: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Tính toán ma trận dòng tiền chéo giữa các Token"""
+    """
+    Tính toán ma trận dòng tiền chéo giữa các Token.
+
+    Ý nghĩa ô matrix[row][col]:
+        Trong các giao dịch (hash) có mặt CẢ token `row` LẪN token `col`,
+        token `col` đã có tổng out/in bao nhiêu.
+
+    'touched' = True nghĩa là cặp (row, col) từng cùng xuất hiện trong ít
+    nhất 1 giao dịch thật (kể cả khi tổng ra đúng bằng 0). Chỉ khi
+    'touched' = False (DB không hề có tx nào chứa cặp này) mới coi là
+    "không có quan hệ" -> phía hiển thị nên show dấu '-'.
+    """
     tokens_map: Dict[str, Tuple[str, str]] = {}
 
     for tx in transactions:
@@ -132,7 +143,10 @@ def generate_cross_token_matrix(transactions: List[Dict[str, Any]]) -> Dict[str,
     token_keys = list(tokens_map.keys())
     zero = Decimal('0')
 
-    matrix = {r: {c: {'out': zero, 'in': zero} for c in token_keys} for r in token_keys}
+    matrix = {
+        r: {c: {'out': zero, 'in': zero, 'touched': False} for c in token_keys}
+        for r in token_keys
+    }
 
     for tx in transactions:
         details = tx.get('details', [])
@@ -152,15 +166,20 @@ def generate_cross_token_matrix(transactions: List[Dict[str, Any]]) -> Dict[str,
             continue
 
         # Với MỌI cặp (row, col) token cùng xuất hiện trong tx này (kể cả row == col),
-        # cộng dồn in/out của token "col" vào ô [row][col].
-        # -> row = "token đang xét", col = "token liên quan" (kể cả chính nó -> đường chéo)
+        # cộng dồn in/out của token "col" vào ô [row][col], và đánh dấu touched = True.
         for row_key in tx_keys:
             for col_key in tx_keys:
                 col_amt = tx_tokens[col_key]
+                cell = matrix[row_key][col_key]
+
+                cell['touched'] = True  # có data thật, dù giá trị = 0 vẫn ghi nhận quan hệ
+
                 if col_amt < zero:
-                    matrix[row_key][col_key]['out'] += abs(col_amt)
-                elif col_amt > zero:
-                    matrix[row_key][col_key]['in'] += abs(col_amt)
+                    cell['out'] += abs(col_amt)
+                else:
+                    # bao gồm cả col_amt == 0 -> cộng 0 không đổi giá trị số,
+                    # nhưng 'touched' đã đủ để đánh dấu quan hệ tồn tại
+                    cell['in'] += abs(col_amt)
 
     headers = [{'symbol': tokens_map[k][0], 'contract': tokens_map[k][1], 'key': k} for k in token_keys]
     rows = []
@@ -171,7 +190,8 @@ def generate_cross_token_matrix(transactions: List[Dict[str, Any]]) -> Dict[str,
             cell = matrix[r_key][c_key]
             row_cells[c_key] = {
                 'out': _format_decimal(cell['out']),
-                'in': _format_decimal(cell['in'])
+                'in': _format_decimal(cell['in']),
+                'touched': cell['touched'],
             }
         rows.append({
             'row_token': {'symbol': tokens_map[r_key][0], 'contract': tokens_map[r_key][1], 'key': r_key},
