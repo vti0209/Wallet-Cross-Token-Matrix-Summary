@@ -1,7 +1,6 @@
 from decimal import Decimal, ROUND_HALF_UP, getcontext
 from typing import Any, Dict, List, Tuple
 
-# Lưu ý: Sửa thành 'from db import get_connection' nếu file DB của ông tên là db.py
 try:
     from db_config import get_connection
 except ImportError:
@@ -39,163 +38,219 @@ def normalize_token(symbol: str, contract_address: str) -> Tuple[str, str, str]:
     return s, c, key
 
 
-def get_transactions_from_db(wallet_address: str, chain: str, from_date: str, to_date: str) -> List[Dict[str, Any]]:
+def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_date: str) -> List[Dict[str, str]]:
     """
-    TRUY VẤN CHUẨN THEO ĐÚNG SQL V2 CỦA MENTOR:
-    - Join transaction_history_v2 và transaction_detail_v2
-    - Tính số âm/dương dựa vào from_address/to_address so với ví
+    Lấy tất cả token có giao dịch trong khoảng thời gian
     """
-    wallet_address = (wallet_address or "").strip()
-    chain = (chain or "").strip()
-    from_date = (from_date or "").strip()
-    to_date = (to_date or "").strip()
-
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
-
-    query_parts = [
-        """
-        SELECT 
-            h.hash,
-            LOWER(TRIM(COALESCE(d.contract, ''))) AS contract,
+    
+    query = """
+        SELECT DISTINCT
             UPPER(TRIM(COALESCE(d.symbol, ''))) AS symbol,
-            LOWER(COALESCE(d.from_address, '')) AS from_address,
-            LOWER(COALESCE(d.to_address, '')) AS to_address,
-            CAST(NULLIF(TRIM(d.amount), '') AS DECIMAL(65, 30)) AS raw_amount
-        FROM transaction_history_v2 AS h
-        INNER JOIN transaction_detail_v2 AS d ON d.hash = h.hash
+            LOWER(TRIM(COALESCE(d.contract, ''))) AS contract
+        FROM transaction_history_v2 h
+        INNER JOIN transaction_detail_v2 d ON d.hash = h.hash
         WHERE LOWER(h.wallet) = LOWER(%s)
           AND (%s = '' OR LOWER(h.chain) = LOWER(%s))
-        """,
-    ]
-    params: List[Any] = [wallet_address, chain, chain]
-
-    if from_date:
-        query_parts.append(" AND h.date_time >= %s")
-        params.append(from_date)
-
-    if to_date:
-        query_parts.append(" AND h.date_time < DATE_ADD(%s, INTERVAL 1 DAY)")
-        params.append(to_date)
-
-    query = "".join(query_parts)
-
+          AND h.date_time >= %s
+          AND h.date_time < DATE_ADD(%s, INTERVAL 1 DAY)
+          AND d.symbol IS NOT NULL
+          AND TRIM(d.symbol) != ''
+    """
+    
     try:
-        cursor.execute(query, params)
+        cursor.execute(query, [wallet_address, chain, chain, from_date, to_date])
         rows = cursor.fetchall()
-
-        wallet_lower = wallet_address.strip().lower()
-        tx_map = {}
-
+        
+        tokens = []
         for r in rows:
-            h = r['hash']
-            if h not in tx_map:
-                tx_map[h] = {'hash': h, 'details': []}
-
-            raw_amt = _to_decimal(r.get('raw_amount', 0))
-            from_addr = str(r.get('from_address', '')).lower()
-            to_addr = str(r.get('to_address', '')).lower()
-
-            # Logic phân định IN/OUT chuẩn từ SQL của Mentor
-            if from_addr == wallet_lower:
-                final_amt = -abs(raw_amt)  # Wallet gửi đi -> Số ÂM
-            elif to_addr == wallet_lower:
-                final_amt = abs(raw_amt)   # Wallet nhận về -> Số DƯƠNG
-            else:
-                final_amt = raw_amt
-
-            tx_map[h]['details'].append({
-                'symbol': r.get('symbol'),
-                'contract_address': r.get('contract'),
-                'amount': final_amt
+            s = r['symbol'] or 'UNKNOWN'
+            c = r['contract'] or ''
+            key = f"{s}|{c}"
+            tokens.append({
+                'symbol': s,
+                'contract': c,
+                'key': key
             })
-
-        return list(tx_map.values())
+        return tokens
     finally:
         cursor.close()
         conn.close()
 
 
-def generate_cross_token_matrix(transactions: List[Dict[str, Any]]) -> Dict[str, Any]:
+def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, to_date: str, symbol: str, contract: str = '') -> Dict[str, Dict[str, float]]:
     """
-    Tính toán ma trận dòng tiền chéo giữa các Token.
-
-    Ý nghĩa ô matrix[row][col]:
-        Trong các giao dịch (hash) có mặt CẢ token `row` LẪN token `col`,
-        token `col` đã có tổng out/in bao nhiêu.
-
-    'touched' = True nghĩa là cặp (row, col) từng cùng xuất hiện trong ít
-    nhất 1 giao dịch thật (kể cả khi tổng ra đúng bằng 0). Chỉ khi
-    'touched' = False (DB không hề có tx nào chứa cặp này) mới coi là
-    "không có quan hệ" -> phía hiển thị nên show dấu '-'.
+    Lấy Token Transfer Summary cho 1 token cụ thể từ DB
+    Sử dụng truy vấn CHUẨN giống như trang Transaction History
     """
-    tokens_map: Dict[str, Tuple[str, str]] = {}
-
-    for tx in transactions:
-        for d in tx.get('details', []):
-            s, c, key = normalize_token(d.get('symbol'), d.get('contract_address'))
-            if s and key not in tokens_map:
-                tokens_map[key] = (s, c)
-
-    if not tokens_map:
-        return {'headers': [], 'rows': []}
-
-    token_keys = list(tokens_map.keys())
-    zero = Decimal('0')
-
-    matrix = {
-        r: {c: {'out': zero, 'in': zero, 'touched': False} for c in token_keys}
-        for r in token_keys
-    }
-
-    for tx in transactions:
-        details = tx.get('details', [])
-        if not details:
-            continue
-
-        tx_tokens: Dict[str, Decimal] = {}
-        for d in details:
-            s, c, key = normalize_token(d.get('symbol'), d.get('contract_address'))
-            if not s:
-                continue
-            amt = _to_decimal(d.get('amount', '0'))
-            tx_tokens[key] = tx_tokens.get(key, zero) + amt
-
-        tx_keys = list(tx_tokens.keys())
-        if not tx_keys:
-            continue
-
-        # Với MỌI cặp (row, col) token cùng xuất hiện trong tx này (kể cả row == col),
-        # cộng dồn in/out của token "col" vào ô [row][col], và đánh dấu touched = True.
-        for row_key in tx_keys:
-            for col_key in tx_keys:
-                col_amt = tx_tokens[col_key]
-                cell = matrix[row_key][col_key]
-
-                cell['touched'] = True  # có data thật, dù giá trị = 0 vẫn ghi nhận quan hệ
-
-                if col_amt < zero:
-                    cell['out'] += abs(col_amt)
-                else:
-                    # bao gồm cả col_amt == 0 -> cộng 0 không đổi giá trị số,
-                    # nhưng 'touched' đã đủ để đánh dấu quan hệ tồn tại
-                    cell['in'] += abs(col_amt)
-
-    headers = [{'symbol': tokens_map[k][0], 'contract': tokens_map[k][1], 'key': k} for k in token_keys]
-    rows = []
-
-    for r_key in token_keys:
-        row_cells = {}
-        for c_key in token_keys:
-            cell = matrix[r_key][c_key]
-            row_cells[c_key] = {
-                'out': _format_decimal(cell['out']),
-                'in': _format_decimal(cell['in']),
-                'touched': cell['touched'],
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    # Truy vấn CHUẨN từ Transaction History
+    query = """
+        WITH selected_transactions AS (
+            SELECT DISTINCT
+                h.hash,
+                h.chain,
+                COALESCE(h.token_id, '') AS nft_token_id
+            FROM transaction_history_v2 AS h
+            WHERE LOWER(h.wallet) = LOWER(%s)
+              AND (%s = '' OR h.chain = %s)
+              AND h.date_time >= %s
+              AND h.date_time < DATE_ADD(%s, INTERVAL 1 DAY)
+        ),
+        normalized_details AS (
+            SELECT
+                st.hash,
+                st.chain,
+                LOWER(TRIM(COALESCE(d.contract, ''))) AS contract,
+                UPPER(TRIM(COALESCE(d.symbol, ''))) AS symbol,
+                LOWER(COALESCE(d.from_address, '')) AS from_address,
+                LOWER(COALESCE(d.to_address, '')) AS to_address,
+                CAST(NULLIF(TRIM(d.amount), '') AS DECIMAL(65, 30)) AS amount
+            FROM selected_transactions AS st
+            INNER JOIN transaction_detail_v2 AS d ON d.hash = st.hash
+        ),
+        wallet_transfers AS (
+            SELECT *
+            FROM normalized_details
+            WHERE CASE
+                WHEN from_address = LOWER(%s) THEN amount < 0
+                WHEN to_address = LOWER(%s) THEN amount > 0
+                ELSE amount > 0
+            END
+        ),
+        direct_token_transactions AS (
+            SELECT DISTINCT wt.hash, wt.chain
+            FROM wallet_transfers AS wt
+            WHERE TRIM(COALESCE(%s, '')) <> ''
+              AND wt.symbol = UPPER(TRIM(%s))
+              AND (TRIM(COALESCE(%s, '')) = '' OR wt.contract = LOWER(TRIM(%s)))
+        ),
+        related_nft_ids AS (
+            SELECT DISTINCT st.chain, st.nft_token_id
+            FROM direct_token_transactions AS dt
+            INNER JOIN selected_transactions AS st ON st.hash = dt.hash AND st.chain = dt.chain
+            WHERE st.nft_token_id <> ''
+        ),
+        selected_hashes AS (
+            SELECT st.hash, st.chain
+            FROM selected_transactions AS st
+            WHERE TRIM(COALESCE(%s, '')) = ''
+            UNION
+            SELECT dt.hash, dt.chain
+            FROM direct_token_transactions AS dt
+            UNION
+            SELECT st.hash, st.chain
+            FROM selected_transactions AS st
+            WHERE TRIM(COALESCE(%s, '')) <> ''
+              AND st.nft_token_id <> ''
+              AND LOCATE(LOWER(TRIM(%s)), LOWER(st.nft_token_id)) > 0
+            UNION
+            SELECT st.hash, st.chain
+            FROM related_nft_ids AS rn
+            INNER JOIN selected_transactions AS st
+                ON st.chain = rn.chain AND BINARY st.nft_token_id = BINARY rn.nft_token_id
+        )
+        SELECT
+            wt.symbol,
+            LOWER(TRIM(COALESCE(wt.contract, ''))) AS contract,
+            SUM(CASE WHEN wt.amount < 0 THEN wt.amount ELSE 0 END) AS sent,
+            SUM(CASE WHEN wt.amount >= 0 THEN wt.amount ELSE 0 END) AS received,
+            SUM(wt.amount) AS total
+        FROM selected_hashes AS sh
+        INNER JOIN wallet_transfers AS wt ON wt.hash = sh.hash AND wt.chain = sh.chain
+        GROUP BY wt.symbol, wt.contract
+    """
+    
+    try:
+        cursor.execute(query, [
+            wallet_address, chain, chain, from_date, to_date,  # selected_transactions
+            wallet_address, wallet_address,                    # wallet_transfers
+            symbol, symbol, contract, contract,               # direct_token_transactions
+            symbol,                                           # selected_hashes - empty check
+            symbol, symbol                                    # selected_hashes - nft filter
+        ])
+        rows = cursor.fetchall()
+        
+        result = {}
+        for r in rows:
+            sym = r['symbol'] or 'UNKNOWN'
+            con = r['contract'] or ''
+            key = f"{sym}|{con}"
+            sent = _to_decimal(r['sent'] or 0)
+            received = _to_decimal(r['received'] or 0)
+            result[key] = {
+                'sent': _format_decimal(sent),
+                'received': _format_decimal(received),
+                'total': _format_decimal(sent + received)
             }
-        rows.append({
-            'row_token': {'symbol': tokens_map[r_key][0], 'contract': tokens_map[r_key][1], 'key': r_key},
-            'cells': row_cells
-        })
+        
+        return result
+    finally:
+        cursor.close()
+        conn.close()
 
+
+def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str, to_date: str) -> Dict[str, Any]:
+    """
+    Tạo ma trận cross-token
+    """
+    # 1. Lấy danh sách token
+    tokens = get_all_tokens_from_db(wallet_address, chain, from_date, to_date)
+    
+    if not tokens:
+        return {'headers': [], 'rows': []}
+    
+    token_keys = [t['key'] for t in tokens]
+    
+    # 2. Với mỗi token, lấy summary
+    matrix = {}
+    for token in tokens:
+        row_key = token['key']
+        symbol = token['symbol']
+        contract = token['contract']
+        
+        # Lấy summary cho token này
+        summary = get_token_summary_from_db(wallet_address, chain, from_date, to_date, symbol, contract)
+        
+        # Xây dựng row cells
+        row_cells = {}
+        for col_token in tokens:
+            col_key = col_token['key']
+            if col_key in summary:
+                row_cells[col_key] = {
+                    'sent': summary[col_key]['sent'],
+                    'received': summary[col_key]['received'],
+                    'touched': True
+                }
+            else:
+                row_cells[col_key] = {
+                    'sent': 0.0,
+                    'received': 0.0,
+                    'touched': False
+                }
+        
+        matrix[row_key] = row_cells
+    
+    # 3. Định dạng kết quả
+    headers = [
+        {'symbol': t['symbol'], 'contract': t['contract'], 'key': t['key']} 
+        for t in tokens
+    ]
+    
+    rows = []
+    for r_key in token_keys:
+        token_info = next((t for t in tokens if t['key'] == r_key), None)
+        if token_info:
+            rows.append({
+                'row_token': {
+                    'symbol': token_info['symbol'],
+                    'contract': token_info['contract'],
+                    'key': r_key
+                },
+                'cells': matrix[r_key]
+            })
+    
     return {'headers': headers, 'rows': rows}
