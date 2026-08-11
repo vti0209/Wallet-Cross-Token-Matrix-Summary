@@ -6,9 +6,9 @@ from pool_token_summary import get_pool_token_summary
 
 def run_test():
     # === INPUT ===
-    wallet = '0x88DE2AB47352779494547CaCCB31eE1A133dd334'
+    wallet = '0x349F8F068120E04B359556E442A579Af41ebF486'
     chain = 'BAS'
-    from_date = '2026-08-08'
+    from_date = '2026-01-01'
     to_date = ''  # De trong -> lay ngay hien tai
 
     print("=" * 60)

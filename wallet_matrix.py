@@ -136,7 +136,7 @@ def is_hidden_row_token(symbol: str, contract: str = '', chain: str = '') -> boo
         "USDC.E", "USDT.E", "ETH.E", "BTC.B",
         # Chain native
         "ETH", "BTC", "BNB", "SOL", "AVAX", "MATIC", "POL", "FTM",
-        "XRP", "LTC", "DOGE", "ADA", "STETH"
+        "XRP", "LTC", "DOGE", "ADA", "STETH", "CAKE", "AERO", "ÚSDC", "U$DC", "EṬH" 
     }
     
     if symbol_upper in HARDCODE_HIDDEN:
