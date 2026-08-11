@@ -1,26 +1,37 @@
 import os
+from dotenv import load_dotenv
 import mysql.connector
 
-ENV = os.getenv("ENV", "server").lower()
-
-if ENV == "server":
-    DB_CONFIG = {
-        'host': os.getenv('SERVER_DB_HOST', '123.19.254.158'),
-        'user': os.getenv('SERVER_DB_USER', 'apebond'),
-        'password': os.getenv('SERVER_DB_PASS', 'it.d@2025'),
-        'database': os.getenv('SERVER_DB_NAME', 'apebond'),
-        'port': int(os.getenv('SERVER_DB_PORT', 3307)),
-        'connect_timeout': 10
-    }
-else:
-    DB_CONFIG = {
-        'host': 'localhost',
-        'user': 'root',
-        'password': '',
-        'database': 'transaction_storage',
-        'port': 3306,
-        'connect_timeout': 10
-    }
+load_dotenv()
 
 def get_connection():
-    return mysql.connector.connect(**DB_CONFIG)
+    env = os.getenv('ENV', 'local')
+    
+    if env == 'server':
+        config = {
+            'host': os.getenv('SERVER_DB_HOST'),
+            'user': os.getenv('SERVER_DB_USER'),
+            'password': os.getenv('SERVER_DB_PASS'),
+            'database': os.getenv('SERVER_DB_NAME'),
+            'port': int(os.getenv('SERVER_DB_PORT', 3306)),
+            'charset': 'utf8mb4',
+            'use_unicode': True,
+            'collation': 'utf8mb4_unicode_ci',
+            'connect_timeout': 30,
+            'autocommit': True,
+        }
+    else:
+        config = {
+            'host': os.getenv('LOCAL_DB_HOST', 'localhost'),
+            'user': os.getenv('LOCAL_DB_USER', 'root'),
+            'password': os.getenv('LOCAL_DB_PASS', ''),
+            'database': os.getenv('LOCAL_DB_NAME', 'apebond'),
+            'port': int(os.getenv('LOCAL_DB_PORT', 3306)),
+            'charset': 'utf8mb4',
+            'use_unicode': True,
+            'collation': 'utf8mb4_unicode_ci',
+            'connect_timeout': 30,
+            'autocommit': True,
+        }
+    
+    return mysql.connector.connect(**config)
