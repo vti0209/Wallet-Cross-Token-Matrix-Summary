@@ -4,8 +4,8 @@
       "key": "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631",
       "symbol": "AERO",
       "contract": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
-      "out": 5834.16107,
-      "in": 3584118.36328
+      "out": 8466.85023,
+      "in": 4392719.46837
     },
     {
       "key": "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c",
@@ -25,8 +25,8 @@
       "key": "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
       "symbol": "USDC",
       "contract": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-      "out": 5268790.45717,
-      "in": 2468711.62749
+      "out": 0.0,
+      "in": 0.0
     },
     {
       "key": "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638",
@@ -60,8 +60,8 @@
       "key": "ETH|",
       "symbol": "ETH",
       "contract": "",
-      "out": 159045.13113000002,
-      "in": 1153.4988400000002
+      "out": 966626.2373500001,
+      "in": 1286.4299000000003
     },
     {
       "key": "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624",
@@ -81,8 +81,8 @@
       "key": "WETH|0x4200000000000000000000000000000000000006",
       "symbol": "WETH",
       "contract": "0x4200000000000000000000000000000000000006",
-      "out": 68577.67382,
-      "in": 4080248.86236
+      "out": 0.0,
+      "in": 0.0
     },
     {
       "key": "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea",
@@ -110,7 +110,7 @@
       "symbol": "KAITO",
       "contract": "0x98d0baa52b2d063e780de12f615f963fe8537553",
       "out": 1971.43437,
-      "in": 2078.50968
+      "in": 2148.60146
     },
     {
       "key": "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81",
@@ -193,8 +193,8 @@
       "key": "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
       "symbol": "WSTETH",
       "contract": "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452",
-      "out": 575.4167600000001,
-      "in": 85.81419
+      "out": 0.0,
+      "in": 0.0
     },
     {
       "key": "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0",
@@ -202,6 +202,69 @@
       "contract": "0x20ea488aa0a5598139737843a69ece27b70af9a0",
       "out": 0.0,
       "in": 50.0
+    },
+    {
+      "key": "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b",
+      "symbol": "EṬH",
+      "contract": "0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b",
+      "out": 0.0,
+      "in": 0.0
+    },
+    {
+      "key": "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8",
+      "symbol": "E឵Τ឵H",
+      "contract": "0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8",
+      "out": 2.0,
+      "in": 0.0
+    },
+    {
+      "key": "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd",
+      "symbol": "VELVET",
+      "contract": "0xbf927b841994731c573bdf09ceb0c6b0aa887cdd",
+      "out": 1627.00755,
+      "in": 1214.19353
+    },
+    {
+      "key": "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d",
+      "symbol": "HYPE",
+      "contract": "0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d",
+      "out": 1.49749,
+      "in": 262.60763
+    },
+    {
+      "key": "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3",
+      "symbol": "RAVE",
+      "contract": "0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3",
+      "out": 1516.95276,
+      "in": 630.45443
+    },
+    {
+      "key": "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287",
+      "symbol": "TGBP",
+      "contract": "0x27f6c8289550fce67f6b50bed1f519966afe5287",
+      "out": 0.0,
+      "in": 17.35855
+    },
+    {
+      "key": "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6",
+      "symbol": "FRXUSD",
+      "contract": "0xe5020a6d073a794b6e7f05678707de47986fb0b6",
+      "out": 0.0,
+      "in": 0.0
+    },
+    {
+      "key": "ZORA|0x1111111111166b7fe7bd91427724b487980afc69",
+      "symbol": "ZORA",
+      "contract": "0x1111111111166b7fe7bd91427724b487980afc69",
+      "out": 806453.09867,
+      "in": 806541.45116
+    },
+    {
+      "key": "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f",
+      "symbol": "UNICLAW",
+      "contract": "0xcca20dd8936629cb743a2b7566a8de6963874b9f",
+      "out": 0.0,
+      "in": 15.0
     }
   ],
   "tokens": [
@@ -378,13 +441,67 @@
       "symbol": "USAS",
       "contract": "0x20ea488aa0a5598139737843a69ece27b70af9a0",
       "label": "USAS (0x20ea...)"
+    },
+    {
+      "key": "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b",
+      "symbol": "EṬH",
+      "contract": "0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b",
+      "label": "EṬH (0x58bd...)"
+    },
+    {
+      "key": "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8",
+      "symbol": "E឵Τ឵H",
+      "contract": "0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8",
+      "label": "E឵Τ឵H (0xce0f...)"
+    },
+    {
+      "key": "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd",
+      "symbol": "VELVET",
+      "contract": "0xbf927b841994731c573bdf09ceb0c6b0aa887cdd",
+      "label": "VELVET (0xbf92...)"
+    },
+    {
+      "key": "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d",
+      "symbol": "HYPE",
+      "contract": "0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d",
+      "label": "HYPE (0x15d0...)"
+    },
+    {
+      "key": "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3",
+      "symbol": "RAVE",
+      "contract": "0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3",
+      "label": "RAVE (0x1aa8...)"
+    },
+    {
+      "key": "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287",
+      "symbol": "TGBP",
+      "contract": "0x27f6c8289550fce67f6b50bed1f519966afe5287",
+      "label": "TGBP (0x27f6...)"
+    },
+    {
+      "key": "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6",
+      "symbol": "FRXUSD",
+      "contract": "0xe5020a6d073a794b6e7f05678707de47986fb0b6",
+      "label": "FRXUSD (0xe502...)"
+    },
+    {
+      "key": "ZORA|0x1111111111166b7fe7bd91427724b487980afc69",
+      "symbol": "ZORA",
+      "contract": "0x1111111111166b7fe7bd91427724b487980afc69",
+      "label": "ZORA (0x1111...)"
+    },
+    {
+      "key": "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f",
+      "symbol": "UNICLAW",
+      "contract": "0xcca20dd8936629cb743a2b7566a8de6963874b9f",
+      "label": "UNICLAW (0xcca2...)"
     }
   ],
   "matrix": {
     "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
       "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
-        "sent": -3862.6584,
-        "received": 3301.17878,
+        "sent": -5366.84252,
+        "received": 4805.3629,
         "has_relation": true
       },
       "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
@@ -399,7 +516,7 @@
       },
       "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
         "sent": 0.0,
-        "received": 3868.74198,
+        "received": 4499.08223,
         "has_relation": true
       },
       "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
@@ -423,7 +540,7 @@
         "has_relation": false
       },
       "ETH|": {
-        "sent": -0.62053,
+        "sent": -1.10074,
         "received": 0.0,
         "has_relation": true
       },
@@ -438,8 +555,8 @@
         "has_relation": false
       },
       "WETH|0x4200000000000000000000000000000000000006": {
-        "sent": -0.01766,
-        "received": 0.24689,
+        "sent": -0.03332,
+        "received": 0.24697,
         "has_relation": true
       },
       "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
@@ -523,6 +640,51 @@
         "has_relation": true
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": -1126.52734,
+        "received": 0.0615,
+        "has_relation": true
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": -1.48183,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 4e-05,
+        "has_relation": true
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 13.95828,
+        "has_relation": true
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 806452.56082,
+        "has_relation": true
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -673,6 +835,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
@@ -820,150 +1027,48 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
-      }
-    },
-    "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
-      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
-        "sent": 0.0,
-        "received": 226.997,
-        "has_relation": true
       },
-      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
-        "sent": -514.03342,
-        "received": 4062.33523,
-        "has_relation": true
-      },
-      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
-        "sent": -10000.0,
-        "received": 0.0,
-        "has_relation": true
-      },
-      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
-        "sent": -1046.29751,
-        "received": 1.9409,
-        "has_relation": true
-      },
-      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
-        "sent": 0.0,
-        "received": 4.20686,
-        "has_relation": true
-      },
-      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "ETH|": {
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
-        "sent": -176720.74013,
-        "received": 176720.74136,
-        "has_relation": true
-      },
-      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "WETH|0x4200000000000000000000000000000000000006": {
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
-        "sent": -5080509.38611,
-        "received": 2287695.40614,
-        "has_relation": true
-      },
-      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -1114,6 +1219,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
@@ -1258,6 +1408,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -1408,6 +1603,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
@@ -1555,12 +1795,57 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "ETH|": {
       "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
         "sent": 0.0,
-        "received": 27.1029,
+        "received": 158.70404,
         "has_relation": true
       },
       "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
@@ -1599,8 +1884,8 @@
         "has_relation": false
       },
       "ETH|": {
-        "sent": -0.69053,
-        "received": 0.1574,
+        "sent": -2.70859,
+        "received": 1.42575,
         "has_relation": true
       },
       "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
@@ -1615,7 +1900,7 @@
       },
       "WETH|0x4200000000000000000000000000000000000006": {
         "sent": -0.01766,
-        "received": 0.03106,
+        "received": 0.03113,
         "has_relation": true
       },
       "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
@@ -1699,6 +1984,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": -1126.52734,
+        "received": 0.0615,
+        "has_relation": true
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": -806452.56082,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -1849,6 +2179,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
@@ -1996,150 +2371,48 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
-      }
-    },
-    "WETH|0x4200000000000000000000000000000000000006": {
-      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
-        "sent": 0.0,
-        "received": 73.95579,
-        "has_relation": true
       },
-      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "ETH|": {
-        "sent": -0.62053,
-        "received": 0.0,
-        "has_relation": true
-      },
-      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WETH|0x4200000000000000000000000000000000000006": {
-        "sent": -0.81662,
-        "received": 0.24689,
-        "has_relation": true
-      },
-      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
-        "sent": -66605.44049,
-        "received": 0.0,
-        "has_relation": true
-      },
-      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
-        "sent": -1970.79618,
-        "received": 81.85088,
-        "has_relation": true
-      },
-      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
-        "sent": 0.0,
-        "received": 1287278.85421,
-        "has_relation": true
-      },
-      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
-        "sent": 0.0,
-        "received": 2792813.95459,
-        "has_relation": true
-      },
-      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -2290,6 +2563,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
@@ -2434,6 +2752,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -2584,12 +2947,57 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
       "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
         "sent": 0.0,
-        "received": 104.54334,
+        "received": 174.63512,
         "has_relation": true
       },
       "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
@@ -2728,6 +3136,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -2878,6 +3331,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
@@ -3022,6 +3520,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -3172,6 +3715,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
@@ -3316,6 +3904,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -3466,6 +4099,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
@@ -3610,6 +4288,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -3760,6 +4483,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
@@ -3904,6 +4672,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -4054,6 +4867,51 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
       }
     },
     "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
@@ -4198,6 +5056,51 @@
         "has_relation": false
       },
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -4348,150 +5251,48 @@
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
-      }
-    },
-    "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
-      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
-        "sent": -575.34846,
-        "received": 85.81419,
-        "has_relation": true
       },
-      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "ETH|": {
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
       },
-      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WETH|0x4200000000000000000000000000000000000006": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
-        "sent": 0.0,
-        "received": 0.0,
-        "has_relation": false
-      },
-      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
-        "sent": -0.0683,
-        "received": 0.0,
-        "has_relation": true
-      },
-      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
         "sent": 0.0,
         "received": 0.0,
         "has_relation": false
@@ -4641,6 +5442,1587 @@
       "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
         "sent": 0.0,
         "received": 50.0,
+        "has_relation": true
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": -2.0,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 61.50936,
+        "has_relation": true
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": -500.0,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": -0.48021,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": 0.0,
+        "received": 7e-05,
+        "has_relation": true
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": -1126.52734,
+        "received": 1152.6841,
+        "has_relation": true
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 262.60763,
+        "has_relation": true
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": -0.01566,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": -1.48183,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": -871.20256,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": -645.7502,
+        "received": 630.45443,
+        "has_relation": true
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 3.40023,
+        "has_relation": true
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 4e-05,
+        "has_relation": true
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 13.95828,
+        "has_relation": true
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 88.89034,
+        "has_relation": true
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": -0.53785,
+        "received": 0.0,
+        "has_relation": true
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": -806452.56082,
+        "received": 806452.56082,
+        "has_relation": true
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      }
+    },
+    "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+      "AERO|0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "NFLXB|0x7dbb044907a185cc37dfd38659d5c1e21f76624c": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KII|0x09e503436ce55aa373ebba70a5af239d095a0f1a": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USDC|0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WARD|0xf09e4c8193f16019f0573f370f9a997b11f56638": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ICNT|0xe0cd4cacddcbf4f36e845407ce53e87717b6601d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "CAKE|0x3055913c90fcc1a6ce9a358911721eeb942013a1": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "PCS-V3-POS|0x46a15b0b27311cedf172ab29e4f4766fbe7f4364": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ETH|": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SUMR|0x194f360d130f2393a5e9f3117a6a1b78abea1624": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xa990c6a764b73bf43cee5bb40339c3322fb9d55f": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WETH|0x4200000000000000000000000000000000000006": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "SERV|0x5576d6ed9181f2225aff5282ac0ed29f755437ea": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0xe1f8cd9ac4e4a65f54f38a5cdafca44f6dd68b53": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AERO-CL-POS|0x827922686190790b37229fd06084350e74485b72": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KAITO|0x98d0baa52b2d063e780de12f615f963fe8537553": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x764c8993a7dc6648f4f87b02350f895566e97f81": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DEGEN|0x4ed4e862860bed51a9570b96d89af5e1b0efefed": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "IRWT|0x1a7cc7ab9c0dbfa4d65f351e445e9b7257202782": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EITHER|0xb323e749001dfdcd6065f78d5e21ed7169ac62b9": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TRC|0xcd6d7a24dad32d5a73f66a79dabd7e2431853f61": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WWW.BADRP.CO ✅|0x53f2f8629585f397ef0cb8395325c673f86f272b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TOAD|0xa3234d43ce6f8e3f3d8efa5baed30511f19d7cd3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "DOS|0x3f6b9ae61c3db3846430e5ffdbf5044d823845ec": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "KELLYCLAUDE|0x50d2280441372486beecdd328c1854743ebacb07": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "GOOK|0x756f11153227f36dba26cd4fb4f01cc8cd9bf0d7": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "AURORA|0xc1973564014452943fa1ddbed296f39d75c0a755": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "WSTETH|0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "USAS|0x20ea488aa0a5598139737843a69ece27b70af9a0": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "EṬH|0x58bdc4310db1b19854ca9066deed7e3df4f2ec9b": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "E឵Τ឵H|0xce0f6fbf0666b4c7b47e79333cc2b1d5b06758f8": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "VELVET|0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "HYPE|0x15d0e0c55a3e7ee67152ad7e89acf164253ff68d": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "RAVE|0x1aa8fd5bcce2231c6100d55bf8b377cff33acfc3": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "TGBP|0x27f6c8289550fce67f6b50bed1f519966afe5287": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "FRXUSD|0xe5020a6d073a794b6e7f05678707de47986fb0b6": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "ZORA|0x1111111111166b7fe7bd91427724b487980afc69": {
+        "sent": 0.0,
+        "received": 0.0,
+        "has_relation": false
+      },
+      "UNICLAW|0xcca20dd8936629cb743a2b7566a8de6963874b9f": {
+        "sent": 0.0,
+        "received": 15.0,
         "has_relation": true
       }
     }

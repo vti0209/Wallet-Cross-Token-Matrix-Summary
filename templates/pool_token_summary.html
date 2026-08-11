@@ -28,7 +28,6 @@
       padding: 0 16px;
     }
     
-    /* Header */
     .header {
       margin-bottom: 28px;
     }
@@ -50,7 +49,7 @@
       font-weight: 400;
     }
     
-    .header .subtitle strong {
+    .header .subtitle .red {
       color: #ef4444;
       font-weight: 600;
     }
@@ -60,7 +59,6 @@
       font-weight: 600;
     }
     
-    /* Card */
     .card {
       background: #fff;
       border-radius: 16px;
@@ -68,11 +66,6 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       padding: 24px;
       margin-bottom: 24px;
-      transition: box-shadow 0.2s;
-    }
-    
-    .card:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
     
     .card.no-padding {
@@ -80,7 +73,6 @@
       overflow: hidden;
     }
     
-    /* Form */
     .form-grid {
       display: grid;
       grid-template-columns: 2.2fr 1.2fr 1fr 1fr auto;
@@ -187,7 +179,6 @@
       border-color: #cbd5e1;
     }
     
-    /* Status */
     .status {
       font-size: 14px;
       font-weight: 600;
@@ -215,7 +206,6 @@
       display: none !important;
     }
     
-    /* Badges */
     .badge-row {
       display: flex;
       flex-wrap: wrap;
@@ -244,7 +234,6 @@
       font-weight: 700;
     }
     
-    /* Legend */
     .legend {
       display: flex;
       gap: 24px;
@@ -282,7 +271,6 @@
       height: 0;
     }
     
-    /* Table */
     .table-wrap {
       overflow: auto;
       border-radius: 12px;
@@ -353,7 +341,6 @@
       margin-top: 2px;
     }
     
-    /* Token cell - sticky left */
     .token-cell {
       text-align: left;
       background: #f8fafc;
@@ -375,7 +362,6 @@
       margin-top: 1px;
     }
     
-    /* Cell content */
     .cell-content {
       display: flex;
       flex-direction: column;
@@ -424,23 +410,6 @@
       padding: 8px 0;
     }
     
-    /* Loading spinner */
-    .loader {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      border: 3px solid #e8edf5;
-      border-top: 3px solid #2563eb;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    /* Responsive */
     @media (max-width: 640px) {
       body {
         padding: 12px;
@@ -476,7 +445,6 @@
 </head>
 <body>
 <div class="container">
-  <!-- Form -->
   <div class="card">
     <form id="searchForm" autocomplete="off" onsubmit="return false;">
       <div class="form-grid">
@@ -505,24 +473,21 @@
 
     <div id="statusMessage" class="status hidden"></div>
 
-    <!-- Legend -->
     <div class="legend hidden" id="legend">
       <span class="legend-item">
-        <span class="legend-color red"></span> OUT (Gửi đi)
+        <span class="legend-color red"></span> OUT (Gui di)
       </span>
       <span class="legend-item">
-        <span class="legend-color green"></span> IN (Nhận về)
+        <span class="legend-color green"></span> IN (Nhan ve)
       </span>
       <span class="legend-item">
-        <span class="legend-color gray"></span> Không có giao dịch chung
+        <span class="legend-color gray"></span> Khong co giao dich chung
       </span>
     </div>
 
-    <!-- Badges -->
     <div class="badge-row hidden" id="summaryBadges"></div>
   </div>
 
-  <!-- Table -->
   <div class="card no-padding">
     <div class="table-wrap">
       <table id="matrixTable">
@@ -541,7 +506,6 @@ const badges = $('summaryBadges'), status = $('statusMessage');
 const searchBtn = $('searchBtn'), exportBtn = $('exportBtn');
 let data = null;
 
-// Reset form khi load
 window.addEventListener('DOMContentLoaded', () => {
   wallet.value = chain.value = from.value = to.value = '';
 });
@@ -559,7 +523,7 @@ const fmt = (n) => {
 
 const showStatus = (msg, type = 'info') => {
   status.textContent = msg;
-  status.className = `status ${type}`;
+  status.className = 'status ' + type;
   status.classList.remove('hidden');
 };
 
@@ -574,73 +538,66 @@ const renderTable = (d) => {
   hideStatus();
 
   if (!d?.tokens?.length) {
-    showStatus('Không tìm thấy dữ liệu giao dịch cho thông số này.', 'error');
+    showStatus('Khong tim thay du lieu giao dich cho thong so nay.', 'error');
     return;
   }
 
   const { tokens, matrix } = d;
 
-  // === HEADER ===
   const trHead = document.createElement('tr');
   let headerHtml = '<th style="min-width:130px;position:sticky;left:0;z-index:15;background:#f8fafc;border-right:2px solid #d1d9e6;">TOKEN / POOL</th>';
   
   tokens.forEach(t => {
     const addr = t.contract ? t.contract.slice(0, 6) + '...' : 'NATIVE';
-    headerHtml += `<th><span class="th-symbol">${t.symbol}</span><span class="th-address">${addr}</span></th>`;
+    headerHtml += '<th><span class="th-symbol">' + t.symbol + '</span><span class="th-address">' + addr + '</span></th>';
   });
   
   trHead.innerHTML = headerHtml;
   header.appendChild(trHead);
 
-  // === BODY ===
   tokens.forEach(rowToken => {
     const tr = document.createElement('tr');
     const rowKey = rowToken.key;
     const rowAddr = rowToken.contract ? rowToken.contract.slice(0, 6) + '...' : '';
     
-    let rowHtml = `<td class="token-cell"><strong>${rowToken.symbol}</strong><span class="addr">${rowAddr}</span></td>`;
+    let rowHtml = '<td class="token-cell"><strong>' + rowToken.symbol + '</strong><span class="addr">' + rowAddr + '</span></td>';
     
     tokens.forEach(colToken => {
       const colKey = colToken.key;
       const cell = matrix[rowKey]?.[colKey];
       
-      // Không có quan hệ -> hiển thị "-"
       if (!cell || !cell.has_relation) {
-        rowHtml += `<td class="empty-cell">−</td>`;
+        rowHtml += '<td class="empty-cell">-</td>';
         return;
       }
       
-      // Có quan hệ -> hiển thị OUT và IN
       const outVal = cell.sent || 0;
       const inVal = cell.received || 0;
       
       let cellHtml = '<div class="cell-content">';
       
-      // OUT (màu đỏ)
       if (outVal !== 0) {
-        cellHtml += `<span class="cell-out">−${fmt(Math.abs(outVal))}</span>`;
+        cellHtml += '<span class="cell-out">-' + fmt(Math.abs(outVal)) + '</span>';
       } else {
-        cellHtml += `<span class="cell-out dim">−0</span>`;
+        cellHtml += '<span class="cell-out dim">-0</span>';
       }
       
-      cellHtml += `<span class="cell-separator">│</span>`;
+      cellHtml += '<span class="cell-separator">|</span>';
       
-      // IN (màu xanh)
       if (inVal !== 0) {
-        cellHtml += `<span class="cell-in">+${fmt(inVal)}</span>`;
+        cellHtml += '<span class="cell-in">+' + fmt(inVal) + '</span>';
       } else {
-        cellHtml += `<span class="cell-in dim">+0</span>`;
+        cellHtml += '<span class="cell-in dim">+0</span>';
       }
       
       cellHtml += '</div>';
-      rowHtml += `<td>${cellHtml}</td>`;
+      rowHtml += '<td>' + cellHtml + '</td>';
     });
     
     tr.innerHTML = rowHtml;
     body.appendChild(tr);
   });
 
-  // === BADGES ===
   badges.classList.remove('hidden');
   document.getElementById('legend').classList.remove('hidden');
   
@@ -650,31 +607,29 @@ const renderTable = (d) => {
   
   const walletShort = wallet.value.length > 20 ? wallet.value.slice(0, 16) + '...' : wallet.value;
   
-  badges.innerHTML = `
-    <div class="badge"><strong>Wallet</strong>${walletShort}</div>
-    <div class="badge"><strong>Chain</strong>${chain.value || 'ALL'}</div>
-    <div class="badge"><strong>Tokens</strong>${tokens.length}</div>
-    <div class="badge"><strong>Relations</strong>${totalRelations}</div>
-  `;
+  badges.innerHTML = 
+    '<div class="badge"><strong>Wallet</strong>' + walletShort + '</div>' +
+    '<div class="badge"><strong>Chain</strong>' + (chain.value || 'ALL') + '</div>' +
+    '<div class="badge"><strong>Tokens</strong>' + tokens.length + '</div>' +
+    '<div class="badge"><strong>Relations</strong>' + totalRelations + '</div>';
   
-  showStatus(`Tìm thấy ${tokens.length} token, ${totalRelations} mối quan hệ giao dịch`, 'success');
+  showStatus('Tim thay ' + tokens.length + ' token, ' + totalRelations + ' moi quan he giao dich', 'success');
 };
 
-// === FETCH DATA ===
 const fetchMatrix = async () => {
   const w = wallet.value.trim();
   if (!w) {
-    showStatus(' Vui lòng nhập địa chỉ ví!', 'error');
+    showStatus('Vui long nhap dia chi vi!', 'error');
     return;
   }
   
   searchBtn.disabled = true;
-  searchBtn.innerHTML = ' Searching...';
-  showStatus(' Đang truy vấn dữ liệu...', 'info');
+  searchBtn.innerHTML = 'Searching...';
+  showStatus('Dang truy van du lieu...', 'info');
   
   try {
     const origin = window.location.protocol === 'file:' ? 'http://127.0.0.1:5000' : window.location.origin;
-    const res = await fetch(`${origin}/api/pool-token-summary`, {
+    const res = await fetch(origin + '/api/pool-token-summary', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -687,26 +642,25 @@ const fetchMatrix = async () => {
     
     if (!res.ok) {
       const e = await res.json();
-      throw new Error(e.message || `HTTP ${res.status}`);
+      throw new Error(e.message || 'HTTP ' + res.status);
     }
     
     const result = await res.json();
     if (result.status !== 'success') {
-      throw new Error(result.message || 'Lỗi hệ thống!');
+      throw new Error(result.message || 'Loi he thong!');
     }
     
     data = result.data;
     renderTable(data);
     
   } catch (e) {
-    showStatus(` ${e.message}`, 'error');
+    showStatus(e.message, 'error');
   } finally {
     searchBtn.disabled = false;
-    searchBtn.innerHTML = ' Search';
+    searchBtn.innerHTML = 'Search';
   }
 };
 
-// === EVENTS ===
 searchBtn.onclick = fetchMatrix;
 document.getElementById('searchForm').onsubmit = (e) => {
   e.preventDefault();
@@ -716,12 +670,12 @@ document.getElementById('searchForm').onsubmit = (e) => {
 // === EXPORT CSV ===
 exportBtn.onclick = () => {
   if (!data?.tokens) {
-    alert('Không có dữ liệu để xuất!');
+    alert('Khong co du lieu de xuat!');
     return;
   }
   
   let csv = 'Token';
-  data.tokens.forEach(t => { csv += `,${t.symbol}`; });
+  data.tokens.forEach(t => { csv += ',' + t.symbol; });
   csv += '\n';
   
   data.tokens.forEach(rowToken => {
@@ -731,7 +685,10 @@ exportBtn.onclick = () => {
       if (!cell || !cell.has_relation) {
         row += ',-';
       } else {
-        row += `,"OUT:${cell.sent || 0}|IN:${cell.received || 0}"`;
+        const sent = cell.sent || 0;
+        const received = cell.received || 0;
+        // Giu nguyen dau: sent la so am (-), received la so duong (+)
+        row += ',' + sent + ' | +' + received;
       }
     });
     csv += row + '\n';
@@ -739,11 +696,10 @@ exportBtn.onclick = () => {
   
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-  a.download = `matrix_${wallet.value.slice(0, 12)}.csv`;
+  a.download = 'matrix_' + wallet.value.slice(0, 12) + '.csv';
   a.click();
 };
 
-// === SUPPORT ENTER KEY ===
 wallet.onkeydown = (e) => { if (e.key === 'Enter') fetchMatrix(); };
 chain.onkeydown = (e) => { if (e.key === 'Enter') fetchMatrix(); };
 </script>

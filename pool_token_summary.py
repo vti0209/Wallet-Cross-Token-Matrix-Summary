@@ -1,4 +1,5 @@
 from decimal import Decimal
+from datetime import datetime
 from wallet_matrix import generate_cross_token_matrix
 
 
@@ -12,13 +13,14 @@ def safe_float(val):
 
 
 def get_pool_token_summary(wallet, chain, from_date, to_date):
-    # 1. Tạo ma trận
+    if not to_date:
+        to_date = datetime.now().strftime('%Y-%m-%d')
+    
     matrix_payload = generate_cross_token_matrix(wallet, chain, from_date, to_date)
     
     headers = matrix_payload.get('headers', [])
     rows_payload = matrix_payload.get('rows', [])
     
-    # 2. Chuẩn hóa danh sách token
     tokens_list = [
         {
             "key": h['key'],
@@ -29,7 +31,6 @@ def get_pool_token_summary(wallet, chain, from_date, to_date):
         for h in headers
     ]
     
-    # 3. Xây dựng ma trận kết quả
     matrix_out = {}
     for r in rows_payload:
         r_key = r['row_token']['key']
@@ -45,7 +46,6 @@ def get_pool_token_summary(wallet, chain, from_date, to_date):
             }
         matrix_out[r_key] = row_cells
     
-    # 4. Tính tổng dòng tiền
     flow_rows = []
     for h in headers:
         k = h['key']
