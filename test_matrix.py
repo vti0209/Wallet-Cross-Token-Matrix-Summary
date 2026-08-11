@@ -30,22 +30,27 @@ def run_test():
         tokens = payload.get('tokens', [])
         matrix = payload.get('matrix', {})
         
-        print(f"Total tokens: {len(tokens)}")
+        # CHI LAY NHUNG TOKEN CO HANG (co trong matrix)
+        valid_row_keys = set(matrix.keys())
+        valid_tokens = [t for t in tokens if t['key'] in valid_row_keys]
         
-        # === XUAT CSV ===
+        print(f"Total tokens: {len(tokens)}")
+        print(f"Valid row tokens: {len(valid_tokens)}")
+        
+        # === XUAT CSV - CHI NHUNG TOKEN CO HANG ===
         csv_file = f'matrix_{wallet[:12]}_{datetime.now().strftime("%Y%m%d")}.csv'
         
         with open(csv_file, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             
-            # Header: Token + danh sach cac token cot
+            # Header: Token + danh sach cac token cot (van lay tat ca token cot)
             header = ['Token']
             for t in tokens:
                 header.append(t['symbol'])
             writer.writerow(header)
             
-            # Data: tung hang
-            for row_token in tokens:
+            # Data: chi lay nhung hang co trong matrix
+            for row_token in valid_tokens:
                 row_key = row_token['key']
                 row_cells = matrix.get(row_key, {})
                 
@@ -57,7 +62,6 @@ def run_test():
                     if cell.get('has_relation', False):
                         sent = cell.get('sent', 0)
                         received = cell.get('received', 0)
-                        # Giu nguyen dau: sent la so am (-), received la so duong (+)
                         row_data.append(f"{sent} | +{received}")
                     else:
                         row_data.append('-')
@@ -65,6 +69,8 @@ def run_test():
                 writer.writerow(row_data)
         
         print(f"CSV exported: {csv_file}")
+        print(f"  - Total columns: {len(tokens)}")
+        print(f"  - Total rows: {len(valid_tokens)}")
         
         # === LUU JSON (de debug) ===
         with open('matrix_result.json', 'w', encoding='utf-8') as f:

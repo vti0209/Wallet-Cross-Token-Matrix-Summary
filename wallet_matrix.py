@@ -26,7 +26,7 @@ WRAPPED_TOKENS = {
     "USDC.E", "USDT.E", "ETH.E", "BTC.B"
 }
 
-# === DANH SACH TOKEN GOC BI AN (khi la wrapped/stablecoin) ===
+# === DANH SACH TOKEN GOC BI AN ===
 BASE_TOKENS_HIDDEN = {
     "ETH", "BTC", "BNB", "SOL", "AVAX", "MATIC", "POL", "FTM",
     "XRP", "LTC", "DOGE", "ADA", "STETH"
@@ -110,16 +110,40 @@ def normalize_token(symbol: str, contract_address: str) -> Tuple[str, str, str]:
     return s, c, key
 
 
-def is_stable_wrapped(symbol: str, contract: str = '', chain: str = '') -> bool:
+def is_hidden_row_token(symbol: str, contract: str = '', chain: str = '') -> bool:
     """
-    Kiem tra token co phai stablecoin hoac wrapped token khong
-    AN TAT CA cac bien the cua stablecoin va wrapped
+    Kiem tra token co bi an hang hay khong
+    AN TAT CA: stablecoin, wrapped, staking, bridged, chain native, ...
     """
     if not symbol:
-        return False
+        return True
     
     symbol_upper = symbol.upper()
     contract_lower = contract.lower() if contract else ''
+    
+    # === DANH SACH TOKEN CHAC CHAN BI AN ===
+    HARDCODE_HIDDEN = {
+        # Stablecoin
+        "USDT", "USDC", "DAI", "FDUSD", "PYUSD", "USDE", "USD1", "USDS", "USDP",
+        "GUSD", "TUSD", "FRAX", "CRVUSD", "LUSD", "SUSD", "USDD", "USDG",
+        "USD0", "USYC", "USAT", "USR",
+        "EURC", "EURS", "EURT", "GYEN", "XSGD", "IDRT", "TRYB", "CADC", "BRZ",
+        "PAXG", "XAUT",
+        # Wrapped token
+        "WETH", "WBTC", "CBBTC", "TBTC", "WBNB", "WSOL", "WAVAX", "WPOL",
+        "WMATIC", "WFTM", "WSTETH", "WBETH", "WEETH", "OSETH",
+        "MSTSOL", "JSOL", "BSOL", "BONKSOL",
+        "USDC.E", "USDT.E", "ETH.E", "BTC.B",
+        # Chain native
+        "ETH", "BTC", "BNB", "SOL", "AVAX", "MATIC", "POL", "FTM",
+        "XRP", "LTC", "DOGE", "ADA", "STETH",
+        # Token khac can an
+        "VELVET", "FRXUSD", "ZORA", "UNICLAW", "EṬH", "E឵Τ឵H",
+        "TGBP", "HYPE", "RAVE"
+    }
+    
+    if symbol_upper in HARDCODE_HIDDEN:
+        return True
     
     # === 1. CHECK CONTRACT ===
     if contract_lower in STABLE_CONTRACTS:
@@ -133,71 +157,70 @@ def is_stable_wrapped(symbol: str, contract: str = '', chain: str = '') -> bool:
     if symbol_upper in WRAPPED_TOKENS:
         return True
     
-    # === 3. CHECK PREFIX - Wrapped token bat dau bang W ===
-    # An tat ca token bat dau bang W + ten token goc
+    # === 3. CHECK PREFIX - Wrapped token (W + token) ===
     if symbol_upper.startswith('W') and len(symbol_upper) >= 3:
         base = symbol_upper[1:]
-        # Kiem tra neu phan con lai la ten token pho bien
         common_tokens = ['ETH', 'BTC', 'BNB', 'SOL', 'AVAX', 'FTM', 'XRP', 
                         'LTC', 'DOGE', 'ADA', 'MATIC', 'POL', 'STETH']
         if base in common_tokens or base in ['BETH', 'BBTC', 'XRP']:
             return True
-        # Them truong hop W + so + token (VD: W1ETH)
         if base and base[0].isdigit():
             for token in common_tokens:
                 if token in base:
                     return True
     
-    # === 4. CHECK PREFIX - Staking token bat dau bang ST ===
+    # === 4. CHECK PREFIX - Staking token (ST + token) ===
     if symbol_upper.startswith('ST') and len(symbol_upper) >= 3:
         base = symbol_upper[2:]
         common_tokens = ['ETH', 'SOL', 'BTC', 'BNB', 'AVAX']
         if base in common_tokens:
             return True
     
-    # === 5. CHECK SUFFIX - Bridged token ket thuc bang .E hoac .B ===
+    # === 5. CHECK SUFFIX - Bridged token (.E / .B) ===
     if symbol_upper.endswith('.E') or symbol_upper.endswith('.B'):
         return True
     
-    # === 6. CHECK SUFFIX - Token ket thuc bang ETH ===
-    # An tat ca token co duoi ETH (ke ca ETH nguyen ban)
+    # === 6. CHECK SUFFIX - ETH ===
     if symbol_upper.endswith('ETH'):
         return True
     
-    # === 7. CHECK SUFFIX - Token ket thuc bang BTC ===
+    # === 7. CHECK SUFFIX - BTC ===
     if symbol_upper.endswith('BTC'):
         return True
     
-    # === 8. CHECK SUFFIX - Token ket thuc bang SOL ===
+    # === 8. CHECK SUFFIX - SOL ===
     if symbol_upper.endswith('SOL'):
         return True
     
-    # === 9. CHECK SUFFIX - Token ket thuc bang BNB ===
+    # === 9. CHECK SUFFIX - BNB ===
     if symbol_upper.endswith('BNB'):
         return True
     
-    # === 10. CHECK PATTERN - Chua USD (stablecoin) ===
+    # === 10. CHECK SUFFIX - AVAX ===
+    if symbol_upper.endswith('AVAX'):
+        return True
+    
+    # === 11. CHECK PATTERN - Contains USD ===
     if 'USD' in symbol_upper:
         return True
     
-    # === 11. CHECK PATTERN - Chua DAI (stablecoin) ===
+    # === 12. CHECK PATTERN - Contains DAI ===
     if 'DAI' in symbol_upper:
         return True
     
-    # === 12. CHECK SPECIAL CASES ===
-    SPECIAL_WRAPPED = {
+    # === 13. CHECK SPECIAL CASES ===
+    SPECIAL_HIDDEN = {
         "CBBTC", "TBTC", "LBTC", "BTCB", "BBTC",
         "OSETH", "RETH", "CBETH", "MSTSOL", "JSOL", "BSOL", "BONKSOL"
     }
-    if symbol_upper in SPECIAL_WRAPPED:
+    if symbol_upper in SPECIAL_HIDDEN:
         return True
     
-    # === 13. CHECK CONTAINS "WRAPPED" ===
+    # === 14. CHECK CONTAINS "WRAPPED" ===
     if 'WRAPPED' in symbol_upper:
         return True
     
-    # === 14. CHECK BASE TOKENS (ETH, BTC, SOL, BNB, ...) ===
-    # An tat ca token goc neu chung la wrapped/stablecoin
+    # === 15. CHECK BASE TOKENS ===
     if symbol_upper in BASE_TOKENS_HIDDEN:
         return True
     
@@ -239,7 +262,7 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
                 'symbol': s,
                 'contract': c,
                 'key': key,
-                'is_stable_wrapped': is_stable_wrapped(s, c, chain)
+                'is_hidden': is_hidden_row_token(s, c, chain)
             })
         return tokens
     finally:
@@ -248,8 +271,8 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
 
 
 def get_row_tokens(all_tokens: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Loc token lam HANG: chi lay token binh thuong (khong phai stablecoin/wrapped)"""
-    return [t for t in all_tokens if not t.get('is_stable_wrapped', False)]
+    """Loc token lam HANG: chi lay token khong bi an"""
+    return [t for t in all_tokens if not t.get('is_hidden', False)]
 
 
 def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, to_date: str, symbol: str, contract: str = '') -> Dict[str, Dict[str, float]]:
@@ -369,32 +392,40 @@ def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str,
     Tao ma tran cross-token
     
     - COT: Tat ca token xuat hien trong giao dich (bao gom ca stablecoin/wrapped)
-    - HANG: Chi cac token binh thuong (khong phai stablecoin/wrapped)
+    - HANG: Chi cac token binh thuong (khong bi an) VA CO IT NHAT 1 MOI QUAN HE
     """
     if not to_date:
         to_date = datetime.now().strftime('%Y-%m-%d')
     
-    # Lay tat ca token (cho COT)
     all_tokens = get_all_tokens_from_db(wallet_address, chain, from_date, to_date)
     
-    # Lay token lam HANG (chi token binh thuong)
-    row_tokens = get_row_tokens(all_tokens)
+    headers = [
+        {'symbol': t['symbol'], 'contract': t['contract'], 'key': t['key']} 
+        for t in all_tokens
+    ]
     
-    if not all_tokens or not row_tokens:
+    if not all_tokens:
         return {'headers': [], 'rows': []}
     
-    # Xay dung ma tran
+    row_tokens_temp = get_row_tokens(all_tokens)
+    
+    if not row_tokens_temp:
+        return {'headers': headers, 'rows': []}
+    
+    # Xay dung ma tran tam thoi de kiem tra moi quan he
     matrix = {}
-    for row_token in row_tokens:
+    valid_row_keys = set()
+    
+    for row_token in row_tokens_temp:
         row_key = row_token['key']
         symbol = row_token['symbol']
         contract = row_token['contract']
         
-        # Lay summary cho token nay
         summary = get_token_summary_from_db(wallet_address, chain, from_date, to_date, symbol, contract)
         
-        # Xay dung row cells cho TAT CA token
         row_cells = {}
+        has_relation = False
+        
         for col_token in all_tokens:
             col_key = col_token['key']
             if col_key in summary:
@@ -403,6 +434,7 @@ def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str,
                     'received': summary[col_key]['received'],
                     'touched': True
                 }
+                has_relation = True
             else:
                 row_cells[col_key] = {
                     'sent': 0.0,
@@ -410,15 +442,15 @@ def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str,
                     'touched': False
                 }
         
-        matrix[row_key] = row_cells
+        # Chi luu row neu co it nhat 1 moi quan he
+        if has_relation:
+            matrix[row_key] = row_cells
+            valid_row_keys.add(row_key)
     
-    # Headers (cot) - tat ca token
-    headers = [
-        {'symbol': t['symbol'], 'contract': t['contract'], 'key': t['key']} 
-        for t in all_tokens
-    ]
+    # Loc lai row_tokens chi nhung token co moi quan he
+    row_tokens = [t for t in row_tokens_temp if t['key'] in valid_row_keys]
     
-    # Rows - chi cac token binh thuong
+    # Rows - chi cac token co moi quan he
     rows = []
     for r_token in row_tokens:
         r_key = r_token['key']

@@ -544,6 +544,16 @@ const renderTable = (d) => {
 
   const { tokens, matrix } = d;
 
+  // === LAY CAC TOKEN CO HANG (co trong matrix) ===
+  const validRowKeys = new Set(Object.keys(matrix));
+  const validRowTokens = tokens.filter(t => validRowKeys.has(t.key));
+
+  if (validRowTokens.length === 0) {
+    showStatus('Khong tim thay du lieu giao dich cho thong so nay.', 'error');
+    return;
+  }
+
+  // === HEADER: tat ca token (cot) ===
   const trHead = document.createElement('tr');
   let headerHtml = '<th style="min-width:130px;position:sticky;left:0;z-index:15;background:#f8fafc;border-right:2px solid #d1d9e6;">TOKEN / POOL</th>';
   
@@ -555,7 +565,8 @@ const renderTable = (d) => {
   trHead.innerHTML = headerHtml;
   header.appendChild(trHead);
 
-  tokens.forEach(rowToken => {
+  // === BODY: chi nhung token co hang ===
+  validRowTokens.forEach(rowToken => {
     const tr = document.createElement('tr');
     const rowKey = rowToken.key;
     const rowAddr = rowToken.contract ? rowToken.contract.slice(0, 6) + '...' : '';
@@ -577,17 +588,17 @@ const renderTable = (d) => {
       let cellHtml = '<div class="cell-content">';
       
       if (outVal !== 0) {
-        cellHtml += '<span class="cell-out">-' + fmt(Math.abs(outVal)) + '</span>';
+        cellHtml += '<span class="cell-out">' + fmt(Math.abs(outVal)) + '</span>';
       } else {
-        cellHtml += '<span class="cell-out dim">-0</span>';
+        cellHtml += '<span class="cell-out dim">0</span>';
       }
       
       cellHtml += '<span class="cell-separator">|</span>';
       
       if (inVal !== 0) {
-        cellHtml += '<span class="cell-in">+' + fmt(inVal) + '</span>';
+        cellHtml += '<span class="cell-in">' + fmt(inVal) + '</span>';
       } else {
-        cellHtml += '<span class="cell-in dim">+0</span>';
+        cellHtml += '<span class="cell-in dim">0</span>';
       }
       
       cellHtml += '</div>';
@@ -598,6 +609,7 @@ const renderTable = (d) => {
     body.appendChild(tr);
   });
 
+  // === BADGES ===
   badges.classList.remove('hidden');
   document.getElementById('legend').classList.remove('hidden');
   
@@ -610,10 +622,10 @@ const renderTable = (d) => {
   badges.innerHTML = 
     '<div class="badge"><strong>Wallet</strong>' + walletShort + '</div>' +
     '<div class="badge"><strong>Chain</strong>' + (chain.value || 'ALL') + '</div>' +
-    '<div class="badge"><strong>Tokens</strong>' + tokens.length + '</div>' +
+    '<div class="badge"><strong>Tokens</strong>' + validRowTokens.length + '</div>' +
     '<div class="badge"><strong>Relations</strong>' + totalRelations + '</div>';
   
-  showStatus('Tim thay ' + tokens.length + ' token, ' + totalRelations + ' moi quan he giao dich', 'success');
+  showStatus('Tim thay ' + validRowTokens.length + ' token, ' + totalRelations + ' moi quan he giao dich', 'success');
 };
 
 const fetchMatrix = async () => {
@@ -667,27 +679,35 @@ document.getElementById('searchForm').onsubmit = (e) => {
   fetchMatrix();
 };
 
-// === EXPORT CSV ===
+// === EXPORT CSV - CHI XUAT TOKEN CO HANG ===
 exportBtn.onclick = () => {
   if (!data?.tokens) {
     alert('Khong co du lieu de xuat!');
     return;
   }
   
+  const { tokens, matrix } = data;
+  const validRowKeys = new Set(Object.keys(matrix));
+  const validRowTokens = tokens.filter(t => validRowKeys.has(t.key));
+  
+  if (validRowTokens.length === 0) {
+    alert('Khong co du lieu de xuat!');
+    return;
+  }
+  
   let csv = 'Token';
-  data.tokens.forEach(t => { csv += ',' + t.symbol; });
+  tokens.forEach(t => { csv += ',' + t.symbol; });
   csv += '\n';
   
-  data.tokens.forEach(rowToken => {
+  validRowTokens.forEach(rowToken => {
     let row = rowToken.symbol;
-    data.tokens.forEach(colToken => {
-      const cell = data.matrix[rowToken.key]?.[colToken.key];
+    tokens.forEach(colToken => {
+      const cell = matrix[rowToken.key]?.[colToken.key];
       if (!cell || !cell.has_relation) {
         row += ',-';
       } else {
         const sent = cell.sent || 0;
         const received = cell.received || 0;
-        // Giu nguyen dau: sent la so am (-), received la so duong (+)
         row += ',' + sent + ' | +' + received;
       }
     });
