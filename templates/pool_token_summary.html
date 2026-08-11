@@ -476,16 +476,6 @@
 </head>
 <body>
 <div class="container">
-  <!-- Header -->
-  <div class="header">
-    <h1>🔄 Cross-Token Pivot Matrix</h1>
-    <p class="subtitle">
-      Ma trận xoay chiều dòng tiền giữa các Token — 
-      Mỗi ô hiển thị <strong>OUT</strong> (gửi đi) và <span class="green">IN</span> (nhận về) 
-      của cột Token trong giao dịch với hàng Token
-    </p>
-  </div>
-
   <!-- Form -->
   <div class="card">
     <form id="searchForm" autocomplete="off" onsubmit="return false;">
@@ -507,8 +497,8 @@
           <input id="to_date" type="date" autocomplete="off">
         </div>
         <div class="form-actions">
-          <button class="btn btn-primary" id="searchBtn" type="button">🔍 Search</button>
-          <button class="btn btn-secondary" id="exportBtn" type="button">📥 CSV</button>
+          <button class="btn btn-primary" id="searchBtn" type="button">Search</button>
+          <button class="btn btn-secondary" id="exportBtn" type="button">CSV</button>
         </div>
       </div>
     </form>
@@ -584,7 +574,7 @@ const renderTable = (d) => {
   hideStatus();
 
   if (!d?.tokens?.length) {
-    showStatus('⚠️ Không tìm thấy dữ liệu giao dịch cho thông số này.', 'error');
+    showStatus('Không tìm thấy dữ liệu giao dịch cho thông số này.', 'error');
     return;
   }
 
@@ -667,20 +657,20 @@ const renderTable = (d) => {
     <div class="badge"><strong>Relations</strong>${totalRelations}</div>
   `;
   
-  showStatus(`✅ Tìm thấy ${tokens.length} token, ${totalRelations} mối quan hệ giao dịch`, 'success');
+  showStatus(`Tìm thấy ${tokens.length} token, ${totalRelations} mối quan hệ giao dịch`, 'success');
 };
 
 // === FETCH DATA ===
 const fetchMatrix = async () => {
   const w = wallet.value.trim();
   if (!w) {
-    showStatus('❌ Vui lòng nhập địa chỉ ví!', 'error');
+    showStatus(' Vui lòng nhập địa chỉ ví!', 'error');
     return;
   }
   
   searchBtn.disabled = true;
-  searchBtn.innerHTML = '⏳ Searching...';
-  showStatus('⏳ Đang truy vấn dữ liệu...', 'info');
+  searchBtn.innerHTML = ' Searching...';
+  showStatus(' Đang truy vấn dữ liệu...', 'info');
   
   try {
     const origin = window.location.protocol === 'file:' ? 'http://127.0.0.1:5000' : window.location.origin;
@@ -709,10 +699,10 @@ const fetchMatrix = async () => {
     renderTable(data);
     
   } catch (e) {
-    showStatus(`❌ ${e.message}`, 'error');
+    showStatus(` ${e.message}`, 'error');
   } finally {
     searchBtn.disabled = false;
-    searchBtn.innerHTML = '🔍 Search';
+    searchBtn.innerHTML = ' Search';
   }
 };
 
