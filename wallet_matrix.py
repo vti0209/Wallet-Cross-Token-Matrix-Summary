@@ -9,6 +9,78 @@ except ImportError:
 
 getcontext().prec = 28
 
+# === DANH SACH STABLECOIN ===
+STABLECOINS = {
+    "USDT", "USDC", "DAI", "FDUSD", "PYUSD", "USDE", "USD1", "USDS", "USDP",
+    "GUSD", "TUSD", "FRAX", "CRVUSD", "LUSD", "SUSD", "USDD", "USDG",
+    "USD0", "USYC", "USAT", "USR",
+    "EURC", "EURS", "EURT", "GYEN", "XSGD", "IDRT", "TRYB", "CADC", "BRZ",
+    "PAXG", "XAUT"
+}
+
+# === DANH SACH WRAPPED TOKEN ===
+WRAPPED_TOKENS = {
+    "WETH", "WBTC", "CBBTC", "TBTC", "WBNB", "WSOL", "WAVAX", "WPOL",
+    "WMATIC", "WFTM", "WSTETH", "WBETH", "WEETH", "OSETH",
+    "MSTSOL", "JSOL", "BSOL", "BONKSOL",
+    "USDC.E", "USDT.E", "ETH.E", "BTC.B"
+}
+
+# === DANH SACH TOKEN GOC BI AN (khi la wrapped/stablecoin) ===
+BASE_TOKENS_HIDDEN = {
+    "ETH", "BTC", "BNB", "SOL", "AVAX", "MATIC", "POL", "FTM",
+    "XRP", "LTC", "DOGE", "ADA", "STETH"
+}
+
+# === DANH SACH CONTRACT THEO CHAIN ===
+STABLE_CONTRACTS = {
+    # Base
+    "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": "USDC",
+    "0x50c5725949a6f0c72e6c4a641f24049a917db0cb": "DAI",
+    "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58": "USDT",
+    # Ethereum
+    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": "USDC",
+    "0xdac17f958d2ee523a2206206994597c13d831ec7": "USDT",
+    "0x6b175474e89094c44da98b954eedeac495271d0f": "DAI",
+    # BSC
+    "0x55d398326f99059ff775485246999027b3197955": "USDT",
+    "0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d": "USDC",
+    "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3": "DAI",
+    # Arbitrum
+    "0xaf88d065e77c8cc2239327c5edb3a432268e5831": "USDC",
+    "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": "USDT",
+    # Polygon
+    "0x2791bca1f2de4661ed88a30c99a7a9449aa84174": "USDC",
+    "0xc2132d05d31c914a87c6611c10748aeb04b58e8f": "USDT",
+    # Solana
+    "epjfwdd5uzf6ybzjgk4ki9djbez3d8m": "USDC",
+    "es9vmfrzscqj0qd9w9j2fkysf4yf": "USDT",
+}
+
+WRAPPED_CONTRACTS = {
+    # Base
+    "0x4200000000000000000000000000000000000006": "WETH",
+    "0xc1cba3fcea344f92d9239c08c0568f6f2f0ee452": "WSTETH",
+    "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22": "CBTC",
+    "0xbf927b841994731c573bdf09ceb0c6b0aa887cdd": "VELVET",
+    # Ethereum
+    "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": "WETH",
+    "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": "WBTC",
+    "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": "WSTETH",
+    # BSC
+    "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c": "WBNB",
+    "0x2170ed0880ac9a755fd29b2688956bd959f933f8": "WETH",
+    # Arbitrum
+    "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": "WETH",
+    "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": "WBTC",
+    # Polygon
+    "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270": "WPOL",
+    "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619": "WETH",
+    # Solana
+    "so11111111111111111111111111111111111111112": "WSOL",
+    "7vfctest5dzxbjh5huqkmvxvsnpu3mh3mdw": "MSTSOL",
+}
+
 
 def _to_decimal(val: Any) -> Decimal:
     if isinstance(val, Decimal):
@@ -38,65 +110,95 @@ def normalize_token(symbol: str, contract_address: str) -> Tuple[str, str, str]:
     return s, c, key
 
 
-def is_stablecoin(symbol: str) -> bool:
-    """Kiem tra token co phai stablecoin khong dua tren symbol"""
-    symbol_upper = symbol.upper()
-    stable_keywords = ['USD', 'DAI', 'BUSD', 'TUSD', 'USDP', 'GUSD', 'UST', 'FRAX', 'LUSD', 'MIM', 'FEI', 'ALUSD']
-    for kw in stable_keywords:
-        if kw in symbol_upper:
-            return True
-    return False
-
-
-def is_wrapped_token(symbol: str) -> bool:
-    """Kiem tra token co phai wrapped token khong"""
-    symbol_upper = symbol.upper()
-    if symbol_upper.startswith('W') and len(symbol_upper) >= 3:
-        base = symbol_upper[1:]
-        common_tokens = ['ETH', 'BTC', 'BNB', 'MATIC', 'AVAX', 'FTM', 'XRP', 'LTC', 'DOGE', 'ADA', 'SOL', 'STETH']
-        if base in common_tokens or base in ['BETH', 'BBTC', 'XRP']:
-            return True
-    return False
-
-
-def is_stable_wrapped(symbol: str, contract: str = '') -> bool:
-    """Kiem tra token co phai stablecoin hoac wrapped token khong"""
+def is_stable_wrapped(symbol: str, contract: str = '', chain: str = '') -> bool:
+    """
+    Kiem tra token co phai stablecoin hoac wrapped token khong
+    AN TAT CA cac bien the cua stablecoin va wrapped
+    """
     if not symbol:
         return False
     
     symbol_upper = symbol.upper()
-    
-    # 1. Kiem tra stablecoin
-    if is_stablecoin(symbol):
-        return True
-    
-    # 2. Kiem tra wrapped token
-    if is_wrapped_token(symbol):
-        return True
-    
-    # 3. Kiem tra contract cua cac token pho bien (fallback)
     contract_lower = contract.lower() if contract else ''
-    wrapped_contracts = {
-        '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',  # WETH on ETH
-        '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',  # WBTC on ETH
-        '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',  # WBNB on BSC
-        '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',  # WMATIC on POL
-        '0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab',  # WETH on ARB
-        '0x82af49447d8a07e3bd95bd0d56f35241523fbab1',  # WETH on ARB
-        '0x4200000000000000000000000000000000000006',  # WETH on BAS
-    }
-    if contract_lower in wrapped_contracts:
+    
+    # === 1. CHECK CONTRACT ===
+    if contract_lower in STABLE_CONTRACTS:
+        return True
+    if contract_lower in WRAPPED_CONTRACTS:
         return True
     
-    stable_contracts = {
-        '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',  # USDC on ETH
-        '0xdac17f958d2ee523a2206206994597c13d831ec7',  # USDT on ETH
-        '0x6b175474e89094c44da98b954eedeac495271d0f',  # DAI on ETH
-        '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',  # USDC on BAS
-        '0x55d398326f99059ff775485246999027b3197955',  # USDT on BSC
-        '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',  # USDC on BSC
+    # === 2. CHECK EXACT SYMBOL ===
+    if symbol_upper in STABLECOINS:
+        return True
+    if symbol_upper in WRAPPED_TOKENS:
+        return True
+    
+    # === 3. CHECK PREFIX - Wrapped token bat dau bang W ===
+    # An tat ca token bat dau bang W + ten token goc
+    if symbol_upper.startswith('W') and len(symbol_upper) >= 3:
+        base = symbol_upper[1:]
+        # Kiem tra neu phan con lai la ten token pho bien
+        common_tokens = ['ETH', 'BTC', 'BNB', 'SOL', 'AVAX', 'FTM', 'XRP', 
+                        'LTC', 'DOGE', 'ADA', 'MATIC', 'POL', 'STETH']
+        if base in common_tokens or base in ['BETH', 'BBTC', 'XRP']:
+            return True
+        # Them truong hop W + so + token (VD: W1ETH)
+        if base and base[0].isdigit():
+            for token in common_tokens:
+                if token in base:
+                    return True
+    
+    # === 4. CHECK PREFIX - Staking token bat dau bang ST ===
+    if symbol_upper.startswith('ST') and len(symbol_upper) >= 3:
+        base = symbol_upper[2:]
+        common_tokens = ['ETH', 'SOL', 'BTC', 'BNB', 'AVAX']
+        if base in common_tokens:
+            return True
+    
+    # === 5. CHECK SUFFIX - Bridged token ket thuc bang .E hoac .B ===
+    if symbol_upper.endswith('.E') or symbol_upper.endswith('.B'):
+        return True
+    
+    # === 6. CHECK SUFFIX - Token ket thuc bang ETH ===
+    # An tat ca token co duoi ETH (ke ca ETH nguyen ban)
+    if symbol_upper.endswith('ETH'):
+        return True
+    
+    # === 7. CHECK SUFFIX - Token ket thuc bang BTC ===
+    if symbol_upper.endswith('BTC'):
+        return True
+    
+    # === 8. CHECK SUFFIX - Token ket thuc bang SOL ===
+    if symbol_upper.endswith('SOL'):
+        return True
+    
+    # === 9. CHECK SUFFIX - Token ket thuc bang BNB ===
+    if symbol_upper.endswith('BNB'):
+        return True
+    
+    # === 10. CHECK PATTERN - Chua USD (stablecoin) ===
+    if 'USD' in symbol_upper:
+        return True
+    
+    # === 11. CHECK PATTERN - Chua DAI (stablecoin) ===
+    if 'DAI' in symbol_upper:
+        return True
+    
+    # === 12. CHECK SPECIAL CASES ===
+    SPECIAL_WRAPPED = {
+        "CBBTC", "TBTC", "LBTC", "BTCB", "BBTC",
+        "OSETH", "RETH", "CBETH", "MSTSOL", "JSOL", "BSOL", "BONKSOL"
     }
-    if contract_lower in stable_contracts:
+    if symbol_upper in SPECIAL_WRAPPED:
+        return True
+    
+    # === 13. CHECK CONTAINS "WRAPPED" ===
+    if 'WRAPPED' in symbol_upper:
+        return True
+    
+    # === 14. CHECK BASE TOKENS (ETH, BTC, SOL, BNB, ...) ===
+    # An tat ca token goc neu chung la wrapped/stablecoin
+    if symbol_upper in BASE_TOKENS_HIDDEN:
         return True
     
     return False
@@ -137,7 +239,7 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
                 'symbol': s,
                 'contract': c,
                 'key': key,
-                'is_stable_wrapped': is_stable_wrapped(s, c)
+                'is_stable_wrapped': is_stable_wrapped(s, c, chain)
             })
         return tokens
     finally:
