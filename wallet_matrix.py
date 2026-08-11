@@ -136,10 +136,7 @@ def is_hidden_row_token(symbol: str, contract: str = '', chain: str = '') -> boo
         "USDC.E", "USDT.E", "ETH.E", "BTC.B",
         # Chain native
         "ETH", "BTC", "BNB", "SOL", "AVAX", "MATIC", "POL", "FTM",
-        "XRP", "LTC", "DOGE", "ADA", "STETH",
-        # Token khac can an
-        "VELVET", "FRXUSD", "ZORA", "UNICLAW", "EṬH", "E឵Τ឵H",
-        "TGBP", "HYPE", "RAVE"
+        "XRP", "LTC", "DOGE", "ADA", "STETH"
     }
     
     if symbol_upper in HARDCODE_HIDDEN:
