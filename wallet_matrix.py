@@ -1,6 +1,7 @@
 from decimal import Decimal, ROUND_HALF_UP, getcontext
 from typing import Any, Dict, List, Tuple
 from datetime import datetime
+import re
 
 try:
     from db_config import get_connection
@@ -11,25 +12,17 @@ getcontext().prec = 28
 
 # === DANH SACH STABLECOIN ===
 STABLECOINS = {
-    "USDT", "USDC", "DAI", "FDUSD", "PYUSD", "USDE", "USD1", "USDS", "USDP",
-    "GUSD", "TUSD", "FRAX", "CRVUSD", "LUSD", "SUSD", "USDD", "USDG",
-    "USD0", "USYC", "USAT", "USR",
-    "EURC", "EURS", "EURT", "GYEN", "XSGD", "IDRT", "TRYB", "CADC", "BRZ",
-    "PAXG", "XAUT"
+    "USDC", "USDT"
 }
 
 # === DANH SACH WRAPPED TOKEN ===
 WRAPPED_TOKENS = {
-    "WETH", "WBTC", "CBBTC", "TBTC", "WBNB", "WSOL", "WAVAX", "WPOL",
-    "WMATIC", "WFTM", "WSTETH", "WBETH", "WEETH", "OSETH",
-    "MSTSOL", "JSOL", "BSOL", "BONKSOL",
-    "USDC.E", "USDT.E", "ETH.E", "BTC.B"
+    "WETH", "WBAS", "WBNB", "WARB", "WLIN", "WPOL", "WSOL"
 }
 
 # === DANH SACH TOKEN GOC BI AN ===
 BASE_TOKENS_HIDDEN = {
-    "ETH", "BTC", "BNB", "SOL", "AVAX", "MATIC", "POL", "FTM",
-    "XRP", "LTC", "DOGE", "ADA", "STETH"
+    "ETH", "BAS", "BNB", "ARB", "LIN", "POL", "SOL"
 }
 
 # === DANH SACH CONTRACT THEO CHAIN ===
@@ -82,6 +75,15 @@ WRAPPED_CONTRACTS = {
 }
 
 
+def clean_symbol(symbol: str) -> str:
+    """Loai bo ky tu dac biet, emoji khoi symbol"""
+    if not symbol:
+        return ''
+    # Chi giu lai chu cai, so, dau cham, dau gach duoi
+    cleaned = re.sub(r'[^\w\s\.\-]', '', symbol)
+    return cleaned.strip().upper()
+
+
 def _to_decimal(val: Any) -> Decimal:
     if isinstance(val, Decimal):
         return val
@@ -113,112 +115,39 @@ def normalize_token(symbol: str, contract_address: str) -> Tuple[str, str, str]:
 def is_hidden_row_token(symbol: str, contract: str = '', chain: str = '') -> bool:
     """
     Kiem tra token co bi an hang hay khong
-    AN TAT CA: stablecoin, wrapped, staking, bridged, chain native, ...
+    AN CAC TOKEN: chain goc, wrapped, stablecoin
     """
     if not symbol:
         return True
     
-    symbol_upper = symbol.upper()
+    # Clean symbol truoc khi xu ly
+    symbol_upper = clean_symbol(symbol)
     contract_lower = contract.lower() if contract else ''
     
-    # === DANH SACH TOKEN CHAC CHAN BI AN ===
-    HARDCODE_HIDDEN = {
-        # Stablecoin
-        "USDT", "USDC", "DAI", "FDUSD", "PYUSD", "USDE", "USD1", "USDS", "USDP",
-        "GUSD", "TUSD", "FRAX", "CRVUSD", "LUSD", "SUSD", "USDD", "USDG",
-        "USD0", "USYC", "USAT", "USR",
-        "EURC", "EURS", "EURT", "GYEN", "XSGD", "IDRT", "TRYB", "CADC", "BRZ",
-        "PAXG", "XAUT",
-        # Wrapped token
-        "WETH", "WBTC", "CBBTC", "TBTC", "WBNB", "WSOL", "WAVAX", "WPOL",
-        "WMATIC", "WFTM", "WSTETH", "WBETH", "WEETH", "OSETH",
-        "MSTSOL", "JSOL", "BSOL", "BONKSOL",
-        "USDC.E", "USDT.E", "ETH.E", "BTC.B",
-        # Chain native
-        "ETH", "BTC", "BNB", "SOL", "AVAX", "MATIC", "POL", "FTM",
-        "XRP", "LTC", "DOGE", "ADA", "STETH", "CAKE", "AERO", "ÚSDC", "U$DC", "EṬH" 
-    }
-    
-    if symbol_upper in HARDCODE_HIDDEN:
+    # Neu sau khi clean ma rong -> an
+    if not symbol_upper:
         return True
     
-    # === 1. CHECK CONTRACT ===
-    if contract_lower in STABLE_CONTRACTS:
-        return True
-    if contract_lower in WRAPPED_CONTRACTS:
+    # === DANH SACH TOKEN BI AN ===
+    # 1. Chain goc: ETH, BAS, BNB, ARB, LIN, POL, SOL
+    BASE_TOKENS = {"ETH", "BAS", "BNB", "ARB", "LIN", "POL", "SOL"}
+    if symbol_upper in BASE_TOKENS:
         return True
     
-    # === 2. CHECK EXACT SYMBOL ===
-    if symbol_upper in STABLECOINS:
-        return True
+    # 2. Wrapped token: WETH, WBAS, WBNB, WARB, WLIN, WPOL, WSOL
+    WRAPPED_TOKENS = {"WETH", "WBAS", "WBNB", "WARB", "WLIN", "WPOL", "WSOL"}
     if symbol_upper in WRAPPED_TOKENS:
         return True
     
-    # === 3. CHECK PREFIX - Wrapped token (W + token) ===
-    if symbol_upper.startswith('W') and len(symbol_upper) >= 3:
-        base = symbol_upper[1:]
-        common_tokens = ['ETH', 'BTC', 'BNB', 'SOL', 'AVAX', 'FTM', 'XRP', 
-                        'LTC', 'DOGE', 'ADA', 'MATIC', 'POL', 'STETH']
-        if base in common_tokens or base in ['BETH', 'BBTC', 'XRP']:
-            return True
-        if base and base[0].isdigit():
-            for token in common_tokens:
-                if token in base:
-                    return True
-    
-    # === 4. CHECK PREFIX - Staking token (ST + token) ===
-    if symbol_upper.startswith('ST') and len(symbol_upper) >= 3:
-        base = symbol_upper[2:]
-        common_tokens = ['ETH', 'SOL', 'BTC', 'BNB', 'AVAX']
-        if base in common_tokens:
-            return True
-    
-    # === 5. CHECK SUFFIX - Bridged token (.E / .B) ===
-    if symbol_upper.endswith('.E') or symbol_upper.endswith('.B'):
+    # 3. Stablecoin: USDC, USDT
+    STABLECOINS = {"USDC", "USDT"}
+    if symbol_upper in STABLECOINS:
         return True
     
-    # === 6. CHECK SUFFIX - ETH ===
-    if symbol_upper.endswith('ETH'):
+    # === 4. CHECK CONTRACT ===
+    if contract_lower in STABLE_CONTRACTS:
         return True
-    
-    # === 7. CHECK SUFFIX - BTC ===
-    if symbol_upper.endswith('BTC'):
-        return True
-    
-    # === 8. CHECK SUFFIX - SOL ===
-    if symbol_upper.endswith('SOL'):
-        return True
-    
-    # === 9. CHECK SUFFIX - BNB ===
-    if symbol_upper.endswith('BNB'):
-        return True
-    
-    # === 10. CHECK SUFFIX - AVAX ===
-    if symbol_upper.endswith('AVAX'):
-        return True
-    
-    # === 11. CHECK PATTERN - Contains USD ===
-    if 'USD' in symbol_upper:
-        return True
-    
-    # === 12. CHECK PATTERN - Contains DAI ===
-    if 'DAI' in symbol_upper:
-        return True
-    
-    # === 13. CHECK SPECIAL CASES ===
-    SPECIAL_HIDDEN = {
-        "CBBTC", "TBTC", "LBTC", "BTCB", "BBTC",
-        "OSETH", "RETH", "CBETH", "MSTSOL", "JSOL", "BSOL", "BONKSOL"
-    }
-    if symbol_upper in SPECIAL_HIDDEN:
-        return True
-    
-    # === 14. CHECK CONTAINS "WRAPPED" ===
-    if 'WRAPPED' in symbol_upper:
-        return True
-    
-    # === 15. CHECK BASE TOKENS ===
-    if symbol_upper in BASE_TOKENS_HIDDEN:
+    if contract_lower in WRAPPED_CONTRACTS:
         return True
     
     return False
@@ -232,10 +161,11 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
     if not to_date:
         to_date = datetime.now().strftime('%Y-%m-%d')
     
+    # Sử dụng CONVERT để ép kiểu và xử lý NULL
     query = """
         SELECT DISTINCT
-            UPPER(TRIM(COALESCE(d.symbol, ''))) AS symbol,
-            LOWER(TRIM(COALESCE(d.contract, ''))) AS contract
+            UPPER(TRIM(COALESCE(CONVERT(d.symbol USING utf8mb4), ''))) AS symbol,
+            LOWER(TRIM(COALESCE(CONVERT(d.contract USING utf8mb4), ''))) AS contract
         FROM transaction_history_v2 h
         INNER JOIN transaction_detail_v2 d ON d.hash = h.hash
         WHERE LOWER(h.wallet) = LOWER(%s)
@@ -244,6 +174,8 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
           AND h.date_time < DATE_ADD(%s, INTERVAL 1 DAY)
           AND d.symbol IS NOT NULL
           AND TRIM(d.symbol) != ''
+          AND LENGTH(TRIM(d.symbol)) > 0
+          AND ASCII(TRIM(d.symbol)) > 31
     """
     
     try:
@@ -254,6 +186,10 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
         for r in rows:
             s = r['symbol'] or 'UNKNOWN'
             c = r['contract'] or ''
+            # Clean symbol
+            s = clean_symbol(s)
+            if not s:
+                continue
             key = f"{s}|{c}"
             tokens.append({
                 'symbol': s,
@@ -262,6 +198,9 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
                 'is_hidden': is_hidden_row_token(s, c, chain)
             })
         return tokens
+    except Exception as e:
+        print(f"Error in get_all_tokens_from_db: {e}")
+        return []
     finally:
         cursor.close()
         conn.close()
@@ -295,8 +234,8 @@ def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, t
             SELECT
                 st.hash,
                 st.chain,
-                LOWER(TRIM(COALESCE(d.contract, ''))) AS contract,
-                UPPER(TRIM(COALESCE(d.symbol, ''))) AS symbol,
+                LOWER(TRIM(COALESCE(CONVERT(d.contract USING utf8mb4), ''))) AS contract,
+                UPPER(TRIM(COALESCE(CONVERT(d.symbol USING utf8mb4), ''))) AS symbol,
                 LOWER(COALESCE(d.from_address, '')) AS from_address,
                 LOWER(COALESCE(d.to_address, '')) AS to_address,
                 CAST(NULLIF(TRIM(d.amount), '') AS DECIMAL(65, 30)) AS amount
@@ -379,6 +318,9 @@ def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, t
             }
         
         return result
+    except Exception as e:
+        print(f"Error in get_token_summary_from_db: {e}")
+        return {}
     finally:
         cursor.close()
         conn.close()
