@@ -2,12 +2,9 @@ from decimal import Decimal, ROUND_HALF_UP, getcontext
 from typing import Any, Dict, List, Tuple
 from datetime import datetime
 import re
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
-try:
-    from db_config import get_connection
-except ImportError:
-    from db_config import get_connection
+from db_config import get_connection
+from bulk_matrix import get_bulk_wallet_transfers, BulkMatrixEngine
 
 getcontext().prec = 28
 
@@ -80,7 +77,6 @@ def clean_symbol(symbol: str) -> str:
     """Loai bo ky tu dac biet, emoji khoi symbol"""
     if not symbol:
         return ''
-    # Chi giu lai chu cai, so, dau cham, dau gach duoi
     cleaned = re.sub(r'[^\w\s\.\-]', '', symbol)
     return cleaned.strip().upper()
 
@@ -120,37 +116,24 @@ def is_hidden_row_token(symbol: str, contract: str = '', chain: str = '') -> boo
     """
     if not symbol:
         return True
-    
-    # Clean symbol truoc khi xu ly
+
     symbol_upper = clean_symbol(symbol)
     contract_lower = contract.lower() if contract else ''
-    
-    # Neu sau khi clean ma rong -> an
+
     if not symbol_upper:
         return True
-    
-    # === DANH SACH TOKEN BI AN ===
-    # 1. Chain goc: ETH, BAS, BNB, ARB, LIN, POL, SOL
-    BASE_TOKENS = {"ETH", "BAS", "BNB", "ARB", "LIN", "POL", "SOL"}
-    if symbol_upper in BASE_TOKENS:
+
+    if symbol_upper in BASE_TOKENS_HIDDEN:
         return True
-    
-    # 2. Wrapped token: WETH, WBAS, WBNB, WARB, WLIN, WPOL, WSOL
-    WRAPPED_TOKENS = {"WETH", "WBAS", "WBNB", "WARB", "WLIN", "WPOL", "WSOL"}
     if symbol_upper in WRAPPED_TOKENS:
         return True
-    
-    # 3. Stablecoin: USDC, USDT
-    STABLECOINS = {"USDC", "USDT"}
     if symbol_upper in STABLECOINS:
         return True
-    
-    # === 4. CHECK CONTRACT ===
     if contract_lower in STABLE_CONTRACTS:
         return True
     if contract_lower in WRAPPED_CONTRACTS:
         return True
-    
+
     return False
 
 
@@ -158,11 +141,10 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
     """Lay tat ca token xuat hien trong giao dich (dung cho COT)"""
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
-    
+
     if not to_date:
         to_date = datetime.now().strftime('%Y-%m-%d')
-    
-    # Sử dụng CONVERT để ép kiểu và xử lý NULL
+
     query = """
         SELECT DISTINCT
             UPPER(TRIM(COALESCE(CONVERT(d.symbol USING utf8mb4), ''))) AS symbol,
@@ -178,16 +160,15 @@ def get_all_tokens_from_db(wallet_address: str, chain: str, from_date: str, to_d
           AND LENGTH(TRIM(d.symbol)) > 0
           AND ASCII(TRIM(d.symbol)) > 31
     """
-    
+
     try:
         cursor.execute(query, [wallet_address, chain, chain, from_date, to_date])
         rows = cursor.fetchall()
-        
+
         tokens = []
         for r in rows:
             s = r['symbol'] or 'UNKNOWN'
             c = r['contract'] or ''
-            # Clean symbol
             s = clean_symbol(s)
             if not s:
                 continue
@@ -212,13 +193,15 @@ def get_row_tokens(all_tokens: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return [t for t in all_tokens if not t.get('is_hidden', False)]
 
 
+# LUU Y: ham nay khong con duoc goi trong luong chinh (da thay bang bulk_matrix.py
+# de tang toc do), giu lai lam doi chieu/fallback neu can debug sau nay.
 def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, to_date: str, symbol: str, contract: str = '') -> Dict[str, Dict[str, float]]:
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
-    
+
     if not to_date:
         to_date = datetime.now().strftime('%Y-%m-%d')
-    
+
     query = """
         WITH selected_transactions AS (
             SELECT DISTINCT
@@ -294,7 +277,7 @@ def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, t
         INNER JOIN wallet_transfers AS wt ON wt.hash = sh.hash AND wt.chain = sh.chain
         GROUP BY wt.symbol, wt.contract
     """
-    
+
     try:
         cursor.execute(query, [
             wallet_address, chain, chain, from_date, to_date,
@@ -304,7 +287,7 @@ def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, t
             symbol, symbol
         ])
         rows = cursor.fetchall()
-        
+
         result = {}
         for r in rows:
             sym = r['symbol'] or 'UNKNOWN'
@@ -317,7 +300,7 @@ def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, t
                 'received': _format_decimal(received),
                 'total': _format_decimal(sent + received)
             }
-        
+
         return result
     except Exception as e:
         print(f"Error in get_token_summary_from_db: {e}")
@@ -330,39 +313,43 @@ def get_token_summary_from_db(wallet_address: str, chain: str, from_date: str, t
 def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str, to_date: str) -> Dict[str, Any]:
     """
     Tao ma tran cross-token
-    
+
     - COT: Tat ca token xuat hien trong giao dich (bao gom ca stablecoin/wrapped)
     - HANG: Chi cac token binh thuong (khong bi an) VA CO IT NHAT 1 MOI QUAN HE
     """
     if not to_date:
         to_date = datetime.now().strftime('%Y-%m-%d')
-    
+
     all_tokens = get_all_tokens_from_db(wallet_address, chain, from_date, to_date)
-    
+
     headers = [
-        {'symbol': t['symbol'], 'contract': t['contract'], 'key': t['key']} 
+        {'symbol': t['symbol'], 'contract': t['contract'], 'key': t['key']}
         for t in all_tokens
     ]
-    
+
     if not all_tokens:
         return {'headers': [], 'rows': []}
-    
+
     row_tokens_temp = get_row_tokens(all_tokens)
-    
+
     if not row_tokens_temp:
         return {'headers': headers, 'rows': []}
-    
-    # Xay dung ma tran tam thoi de kiem tra moi quan he
+
+    # Lay toan bo du lieu giao dich 1 lan duy nhat, roi tinh toan bang Python
+    # thay vi query rieng cho tung token (da kiem chung khop 100% ket qua voi
+    # ham get_token_summary_from_db o tren, xem compare_matrix.py luc test)
+    bulk_rows = get_bulk_wallet_transfers(wallet_address, chain, from_date, to_date)
+    engine = BulkMatrixEngine(bulk_rows, wallet_address)
+
     matrix = {}
     valid_row_keys = set()
 
-    def _fetch_row(row_token):
-        """Fetch summary cho 1 token, tra ve (row_key, row_cells, has_relation)"""
+    for row_token in row_tokens_temp:
         row_key = row_token['key']
         symbol = row_token['symbol']
         contract = row_token['contract']
 
-        summary = get_token_summary_from_db(wallet_address, chain, from_date, to_date, symbol, contract)
+        summary = engine.summary_for_token(symbol, contract)
 
         row_cells = {}
         has_relation = False
@@ -383,19 +370,12 @@ def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str,
                     'touched': False
                 }
 
-        return row_key, row_cells, has_relation
-    with ThreadPoolExecutor(max_workers=min(len(row_tokens_temp), 10)) as executor:
-        futures = {executor.submit(_fetch_row, t): t for t in row_tokens_temp}
-        for future in as_completed(futures):
-            row_key, row_cells, has_relation = future.result()
-            if has_relation:
-                matrix[row_key] = row_cells
-                valid_row_keys.add(row_key)
+        if has_relation:
+            matrix[row_key] = row_cells
+            valid_row_keys.add(row_key)
 
-    # Loc lai row_tokens chi nhung token co moi quan he
     row_tokens = [t for t in row_tokens_temp if t['key'] in valid_row_keys]
-    
-    # Rows - chi cac token co moi quan he
+
     rows = []
     for r_token in row_tokens:
         r_key = r_token['key']
@@ -407,5 +387,5 @@ def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str,
             },
             'cells': matrix.get(r_key, {})
         })
-    
+
     return {'headers': headers, 'rows': rows}

@@ -1,10 +1,13 @@
 import os
 from dotenv import load_dotenv
 import mysql.connector
+import mysql.connector.pooling
 
 load_dotenv()
 
-def get_connection():
+_pool = None
+
+def _build_config():
     env = os.getenv('ENV', 'local')
 
     if env == 'server':
@@ -33,5 +36,16 @@ def get_connection():
             'connect_timeout': 30,
             'autocommit': True,
         }
+    return config
 
-    return mysql.connector.connect(**config)
+
+def get_connection():
+    global _pool
+    if _pool is None:
+        config = _build_config()
+        _pool = mysql.connector.pooling.MySQLConnectionPool(
+            pool_name="btap_pool",
+            pool_size=32,
+            **config
+        )
+    return _pool.get_connection()
