@@ -2,6 +2,7 @@ from decimal import Decimal, ROUND_HALF_UP, getcontext
 from typing import Any, Dict, List, Tuple
 from datetime import datetime
 import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
     from db_config import get_connection
@@ -354,17 +355,18 @@ def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str,
     # Xay dung ma tran tam thoi de kiem tra moi quan he
     matrix = {}
     valid_row_keys = set()
-    
-    for row_token in row_tokens_temp:
+
+    def _fetch_row(row_token):
+        """Fetch summary cho 1 token, tra ve (row_key, row_cells, has_relation)"""
         row_key = row_token['key']
         symbol = row_token['symbol']
         contract = row_token['contract']
-        
+
         summary = get_token_summary_from_db(wallet_address, chain, from_date, to_date, symbol, contract)
-        
+
         row_cells = {}
         has_relation = False
-        
+
         for col_token in all_tokens:
             col_key = col_token['key']
             if col_key in summary:
@@ -380,12 +382,16 @@ def generate_cross_token_matrix(wallet_address: str, chain: str, from_date: str,
                     'received': 0.0,
                     'touched': False
                 }
-        
-        # Chi luu row neu co it nhat 1 moi quan he
-        if has_relation:
-            matrix[row_key] = row_cells
-            valid_row_keys.add(row_key)
-    
+
+        return row_key, row_cells, has_relation
+    with ThreadPoolExecutor(max_workers=min(len(row_tokens_temp), 10)) as executor:
+        futures = {executor.submit(_fetch_row, t): t for t in row_tokens_temp}
+        for future in as_completed(futures):
+            row_key, row_cells, has_relation = future.result()
+            if has_relation:
+                matrix[row_key] = row_cells
+                valid_row_keys.add(row_key)
+
     # Loc lai row_tokens chi nhung token co moi quan he
     row_tokens = [t for t in row_tokens_temp if t['key'] in valid_row_keys]
     

@@ -6,7 +6,7 @@ load_dotenv()
 
 def get_connection():
     env = os.getenv('ENV', 'local')
-    
+
     if env == 'server':
         config = {
             'host': os.getenv('SERVER_DB_HOST'),
@@ -25,7 +25,7 @@ def get_connection():
             'host': os.getenv('LOCAL_DB_HOST', 'localhost'),
             'user': os.getenv('LOCAL_DB_USER', 'root'),
             'password': os.getenv('LOCAL_DB_PASS', ''),
-            'database': os.getenv('LOCAL_DB_NAME', 'apebond'),
+            'database': os.getenv('LOCAL_DB_NAME', 'transaction_storage'),
             'port': int(os.getenv('LOCAL_DB_PORT', 3306)),
             'charset': 'utf8mb4',
             'use_unicode': True,
@@ -33,5 +33,5 @@ def get_connection():
             'connect_timeout': 30,
             'autocommit': True,
         }
-    
+
     return mysql.connector.connect(**config)
